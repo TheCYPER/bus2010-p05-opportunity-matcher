@@ -3,6 +3,11 @@
 BUS2010 Co-op Platform · P05 AI-Assisted Opportunity Matching.
 All people, employers, records and decisions are synthetic.
 
+- **Live prototype:** https://thecyper.github.io/bus2010-p05-opportunity-matcher/
+- **Repository:** https://github.com/TheCYPER/bus2010-p05-opportunity-matcher
+- **Shared database guide for partner teams:** [docs/SUPABASE_GUIDE.md](docs/SUPABASE_GUIDE.md)
+- **AI method record:** [docs/AI_METHOD.md](docs/AI_METHOD.md)
+
 ## Run it
 
 - **Open `index.html`** in any browser (double-click). It loads the shared BUS2010 database; if that cannot be reached it says "Demo data — couldn't reach the shared database" and uses the six built-in students. Add `?demo` to the address to force the offline copy.

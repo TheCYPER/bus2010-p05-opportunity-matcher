@@ -4,6 +4,8 @@ BUS2010 Co-op Platform · maintained by Team 5 (P05 AI-assisted matching) · las
 
 Every example in this guide was run against the live database before it was handed over (`node scripts/test_guide_examples.mjs`).
 
+See P05 use it: https://thecyper.github.io/bus2010-p05-opportunity-matcher/ · source: https://github.com/TheCYPER/bus2010-p05-opportunity-matcher
+
 ## 1. What this is
 
 One shared [Supabase](https://supabase.com) (PostgreSQL) database that the seven BUS2010 co-op teams can read and write, so each team's prototype works on the same students, employers and jobs instead of seven separate fixture files.
