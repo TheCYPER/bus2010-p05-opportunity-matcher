@@ -1,0 +1,18 @@
+{
+  "name": "p05-opportunity-matcher",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Team 5 P05 AI-assisted matching prototype and the shared BUS2010 Supabase database",
+  "scripts": {
+    "test": "node tests/run-tests.js",
+    "build": "python3 build.py",
+    "seed": "node scripts/generate_seed.mjs",
+    "embed": "node scripts/embed.mjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "3.7.6"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.45.4"
+  }
+}

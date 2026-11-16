@@ -1,0 +1,14 @@
+supabase/.env.local
+supabase/team-keys.private.md
+supabase/.temp/
+supabase/.branches/
+node_modules/
+.env*
+*.private.*
+scripts/.cache/
+dist/
+
+# internal hand-off notes, not part of the published project
+HANDOFF.md
+artifacts/
+.DS_Store

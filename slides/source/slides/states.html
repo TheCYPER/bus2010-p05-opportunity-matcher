@@ -1,0 +1,33 @@
+<section id="states" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Key design decision</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">Three answers, never just yes or no</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:18px;border-top:6px solid #4E7808;padding:32px 0px 0px 0px">
+<div style="width:72px;height:72px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:40px;height:40px"></x-icon></div>
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15">Can apply</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">Every requirement is met, with verified evidence.</p>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">Example: SQL, verified by skills training</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:18px;border-top:6px solid #C9B21E;padding:32px 0px 0px 0px">
+<p style="width:72px;height:72px;line-height:72px;border-radius:50%;background:#C9B21E;color:#2B2600;text-align:center;font-size:44px;font-weight:700">!</p>
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15">One thing to do</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">Something can’t be confirmed yet, like a skill nobody has verified.</p>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">Example: Jira, listed by Layla but not verified</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:18px;border-top:6px solid #9AA38F;padding:32px 0px 0px 0px">
+<p style="width:72px;height:72px;line-height:72px;border-radius:50%;background:#9AA38F;color:#F5F7EE;text-align:center;font-size:44px;font-weight:700">–</p>
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15">Not a fit now</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">A requirement is clearly missing.</p>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">Example: an on-site job, a student who wants remote only</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #1F4F59;padding:8px 0px 8px 28px">
+<p style="font-size:32px;line-height:1.4">A skill a student only listed themselves counts as nice to have, <b>never</b> as required.</p>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">From the P01 and P05 briefs. A yes-or-no system would tell Layla “no”, and she would not apply.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">4</p>
+<aside>This is the decision everything else builds on. Each requirement has three possible answers, not two. Can apply needs verified evidence. Not a fit now is a real conflict, like a remote-only student and an on-site job. One thing to do means we simply don’t know yet: the data is missing or the skill was never checked. A system that treats “unknown” as “no” tells Layla she does not qualify when the truth is that nobody has checked. Our brief warns against exactly that kind of false confidence, so “one thing to do” is its own answer and the interface never hides it.</aside>
+</section>

@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 · P05 Progress Review</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500..700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0;background:#2E3328;font-family:Figtree,Arial,sans-serif}
+.deck{display:flex;flex-direction:column;align-items:center;gap:20px;padding:32px 16px}
+.frame{width:min(100%,1280px);aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.frame>section{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;box-sizing:border-box}
+.frame section *{margin:0;box-sizing:border-box}
+.frame section ul{padding-left:1.1em}
+.frame section img{display:block}
+.frame section aside{display:none}
+x-icon{display:inline-block} x-icon svg{width:100%;height:100%;display:block}
+x-connector{display:inline-block;height:24px;flex:none;border-style:none}
+.notes{width:min(100%,1280px);margin:0 0 28px;color:#D9DFCD;font-size:14px;line-height:1.55}
+.notes b{color:#DCD964;margin-right:6px}
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  body{background:#fff} .deck{padding:0;gap:0} .notes{display:none}
+  .frame{width:1920px;height:1080px;aspect-ratio:auto;border-radius:0;box-shadow:none;break-after:page}
+  .frame>section{transform:none!important}
+}
+</style></head><body>
+<main class="deck">
+<div class="frame" id="s1"><section id="cover" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
+<p style="font-size:24px;font-weight:600;color:#1F4F59;width:1000px">BUS2010 co-op platform, Sprint 1 review</p>
+<div style="width:1000px;display:flex;flex-direction:column;gap:28px">
+<h1 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:112px;font-weight:700;line-height:1;letter-spacing:-3px;color:#213502">Opportunity Matcher</h1>
+<p style="font-size:44px;line-height:1.3;color:#4A5A3A">Which internships fit a student, and what to do about the rest.</p>
+</div>
+<div style="width:1000px;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:32px;font-weight:700;color:#213502">Team 5, project P05</p>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">Alghala Almansoori, Maha Abdulla, Che Liu, Leonard Jiang Mingming, Yonghan Yang</p>
+<p style="font-size:24px;color:#5E6A52">November 2026</p>
+</div>
+<div style="position:absolute;right:128px;top:128px;width:560px;height:824px;background:#1F4F59;border-radius:40px;padding:56px;display:flex;flex-direction:column;justify-content:center;gap:36px">
+<div style="display:flex;flex-direction:row;align-items:center;gap:24px">
+<div style="width:72px;height:72px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:40px;height:40px"></x-icon></div>
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;color:#F1F5E6">Can apply</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:24px">
+<p style="width:72px;height:72px;line-height:72px;border-radius:50%;background:#C9B21E;color:#2B2600;text-align:center;font-size:44px;font-weight:700">!</p>
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;color:#F1F5E6">One thing to do</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:24px">
+<p style="width:72px;height:72px;line-height:72px;border-radius:50%;background:#9AA38F;color:#1F4F59;text-align:center;font-size:44px;font-weight:700">–</p>
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;color:#F1F5E6">Not a fit now</p>
+</div>
+<p style="font-size:24px;line-height:1.4;color:#B7D0CF">Every result is one of these three answers, always with an icon and a word.</p>
+</div>
+<aside>Hi, we are Team 5. Our part of the co-op platform is P05, opportunity matching: for each student, which internships fit, and what to do about the ones that don’t yet. In the next few minutes: the problem, a short demo of the prototype, how we test it, and how our team works together. The three answers on the right are the core idea of the product; you will see them throughout.</aside>
+</section>
+</div>
+<p class="notes"><b>1. cover</b> Hi, we are Team 5. Our part of the co-op platform is P05, opportunity matching: for each student, which internships fit, and what to do about the ones that don’t yet. In the next few minutes: the problem, a short demo of the prototype, how we test it, and how our team works together. The three answers on the right are the core idea of the product; you will see them throughout.</p>
+<div class="frame" id="s2"><section id="problem" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">The problem</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502;width:1500px">Students can find internships. They can’t tell which ones they qualify for.</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;border-top:3px solid #213502;padding:28px 0px 0px 0px">
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#213502">Can I apply?</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">Every requirement is marked: you have it, it needs checking, or it is missing.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;border-top:3px solid #213502;padding:28px 0px 0px 0px">
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#213502">Why was this suggested?</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">Each result gives its reasons in plain words, and records what they were based on.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;border-top:3px solid #213502;padding:28px 0px 0px 0px">
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#213502">What would change the answer?</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">A missing skill becomes one next step: get it verified by skills training.</p>
+</div>
+</div>
+<p style="font-size:32px;font-weight:600;color:#213502;background:#DCD964;border-radius:999px;padding:16px 36px;align-self:start">We rank jobs for students. We never rank students for employers.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">2</p>
+<aside>Our persona is Layla Hassan, a student who wants an aviation analytics internship in Dubai. Finding jobs is already another team’s module: Layla can browse listings. What she cannot do is answer three questions about a given job. Three of the four acceptance criteria in our brief are about explaining results honestly, not about ranking accuracy, so we treat the explanation as the product. One scope rule we fixed early: we rank jobs for students, never students for employers.</aside>
+</section>
+</div>
+<p class="notes"><b>2. problem</b> Our persona is Layla Hassan, a student who wants an aviation analytics internship in Dubai. Finding jobs is already another team’s module: Layla can browse listings. What she cannot do is answer three questions about a given job. Three of the four acceptance criteria in our brief are about explaining results honestly, not about ranking accuracy, so we treat the explanation as the product. One scope rule we fixed early: we rank jobs for students, never students for employers.</p>
+<div class="frame" id="s3"><section id="platform" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Where P05 sits</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">Seven steps to a placement. We build step 4.</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:16px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FCFDF8;border:2px solid #DFE5D3;border-radius:28px;padding:24px">
+<p style="width:48px;height:48px;line-height:48px;border-radius:50%;background:#1F4F59;color:#F1F5E6;text-align:center;font-size:24px;font-weight:700">1</p>
+<p style="font-size:28px;font-weight:700;line-height:1.25">Build your profile</p>
+<p style="font-size:24px;color:#5E6A52">P01</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FCFDF8;border:2px solid #DFE5D3;border-radius:28px;padding:24px">
+<p style="width:48px;height:48px;line-height:48px;border-radius:50%;background:#1F4F59;color:#F1F5E6;text-align:center;font-size:24px;font-weight:700">2</p>
+<p style="font-size:28px;font-weight:700;line-height:1.25">Employers post jobs</p>
+<p style="font-size:24px;color:#5E6A52">P02</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FCFDF8;border:2px solid #DFE5D3;border-radius:28px;padding:24px">
+<p style="width:48px;height:48px;line-height:48px;border-radius:50%;background:#1F4F59;color:#F1F5E6;text-align:center;font-size:24px;font-weight:700">3</p>
+<p style="font-size:28px;font-weight:700;line-height:1.25">The university approves jobs</p>
+<p style="font-size:24px;color:#5E6A52">P03</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#DCD964;border:2px solid #DCD964;border-radius:28px;padding:24px">
+<p style="width:48px;height:48px;line-height:48px;border-radius:50%;background:#213502;color:#DCD964;text-align:center;font-size:24px;font-weight:700">4</p>
+<p style="font-size:28px;font-weight:700;line-height:1.25">See which jobs fit you</p>
+<p style="font-size:24px;font-weight:700;color:#213502">P05, our team</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FCFDF8;border:2px solid #DFE5D3;border-radius:28px;padding:24px">
+<p style="width:48px;height:48px;line-height:48px;border-radius:50%;background:#1F4F59;color:#F1F5E6;text-align:center;font-size:24px;font-weight:700">5</p>
+<p style="font-size:28px;font-weight:700;line-height:1.25">Close a skill gap</p>
+<p style="font-size:24px;color:#5E6A52">P06</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FCFDF8;border:2px solid #DFE5D3;border-radius:28px;padding:24px">
+<p style="width:48px;height:48px;line-height:48px;border-radius:50%;background:#1F4F59;color:#F1F5E6;text-align:center;font-size:24px;font-weight:700">6</p>
+<p style="font-size:28px;font-weight:700;line-height:1.25">Apply and track</p>
+<p style="font-size:24px;color:#5E6A52">P04</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FCFDF8;border:2px solid #DFE5D3;border-radius:28px;padding:24px">
+<p style="width:48px;height:48px;line-height:48px;border-radius:50%;background:#1F4F59;color:#F1F5E6;text-align:center;font-size:24px;font-weight:700">7</p>
+<p style="font-size:28px;font-weight:700;line-height:1.25">Do the placement</p>
+<p style="font-size:24px;color:#5E6A52">P07</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#E8EDDD;border-radius:28px;padding:32px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Our one two-way hand-off</p>
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px">
+<p style="flex:1;font-size:28px;line-height:1.3;background:#FCFDF8;border-radius:20px;padding:16px 20px">We send a skill gap to P06</p>
+<x-connector style="width:48px;color:#1F4F59;border-width:3px"></x-connector>
+<p style="flex:1;font-size:28px;line-height:1.3;background:#FCFDF8;border-radius:20px;padding:16px 20px">P06 verifies the skill</p>
+<x-connector style="width:48px;color:#1F4F59;border-width:3px"></x-connector>
+<p style="flex:1;font-size:28px;line-height:1.3;background:#FCFDF8;border-radius:20px;padding:16px 20px">P01 saves a new profile</p>
+<x-connector style="width:48px;color:#1F4F59;border-width:3px"></x-connector>
+<p style="flex:1;font-size:28px;line-height:1.3;background:#FCFDF8;border-radius:20px;padding:16px 20px">We refresh the match</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">3</p>
+<aside>Seven student teams each build one step of the co-op platform. A student builds a profile, employers post jobs, the university approves them, then our step: which of those jobs fit this student. After us come skills training, applications and the placement itself. We read profiles from P01 and approved jobs from P03. Our one two-way hand-off is with P06: when a skill is missing, we send it to skills training; when they verify it, P01 saves a new profile version and we refresh the match. We never store our own opinion of whether a skill is verified; that belongs to P06.</aside>
+</section>
+</div>
+<p class="notes"><b>3. platform</b> Seven student teams each build one step of the co-op platform. A student builds a profile, employers post jobs, the university approves them, then our step: which of those jobs fit this student. After us come skills training, applications and the placement itself. We read profiles from P01 and approved jobs from P03. Our one two-way hand-off is with P06: when a skill is missing, we send it to skills training; when they verify it, P01 saves a new profile version and we refresh the match. We never store our own opinion of whether a skill is verified; that belongs to P06.</p>
+<div class="frame" id="s4"><section id="states" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Key design decision</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">Three answers, never just yes or no</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:18px;border-top:6px solid #4E7808;padding:32px 0px 0px 0px">
+<div style="width:72px;height:72px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:40px;height:40px"></x-icon></div>
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15">Can apply</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">Every requirement is met, with verified evidence.</p>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">Example: SQL, verified by skills training</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:18px;border-top:6px solid #C9B21E;padding:32px 0px 0px 0px">
+<p style="width:72px;height:72px;line-height:72px;border-radius:50%;background:#C9B21E;color:#2B2600;text-align:center;font-size:44px;font-weight:700">!</p>
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15">One thing to do</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">Something can’t be confirmed yet, like a skill nobody has verified.</p>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">Example: Jira, listed by Layla but not verified</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:18px;border-top:6px solid #9AA38F;padding:32px 0px 0px 0px">
+<p style="width:72px;height:72px;line-height:72px;border-radius:50%;background:#9AA38F;color:#F5F7EE;text-align:center;font-size:44px;font-weight:700">–</p>
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15">Not a fit now</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">A requirement is clearly missing.</p>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">Example: an on-site job, a student who wants remote only</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;border-left:6px solid #1F4F59;padding:8px 0px 8px 28px">
+<p style="font-size:32px;line-height:1.4">A skill a student only listed themselves counts as nice to have, <b>never</b> as required.</p>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">From the P01 and P05 briefs. A yes-or-no system would tell Layla “no”, and she would not apply.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">4</p>
+<aside>This is the decision everything else builds on. Each requirement has three possible answers, not two. Can apply needs verified evidence. Not a fit now is a real conflict, like a remote-only student and an on-site job. One thing to do means we simply don’t know yet: the data is missing or the skill was never checked. A system that treats “unknown” as “no” tells Layla she does not qualify when the truth is that nobody has checked. Our brief warns against exactly that kind of false confidence, so “one thing to do” is its own answer and the interface never hides it.</aside>
+</section>
+</div>
+<p class="notes"><b>4. states</b> This is the decision everything else builds on. Each requirement has three possible answers, not two. Can apply needs verified evidence. Not a fit now is a real conflict, like a remote-only student and an on-site job. One thing to do means we simply don’t know yet: the data is missing or the skill was never checked. A system that treats “unknown” as “no” tells Layla she does not qualify when the truth is that nobody has checked. Our brief warns against exactly that kind of false confidence, so “one thing to do” is its own answer and the interface never hides it.</p>
+<div class="frame" id="s5"><section id="sprint1" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Sprint 1</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">From documents to a working prototype</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#E8EDDD;border-radius:28px;padding:36px 40px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Sprint goal</p>
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:600;line-height:1.25;color:#213502">“Layla can see why a job was suggested, and what is missing.”</p>
+</div>
+<div style="display:flex;flex-direction:row;gap:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:3px solid #213502;padding:24px 0px 0px 0px">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:112px;font-weight:700;line-height:1;letter-spacing:-3px;color:#1F4F59">6 × 6</p>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">demo students checked against demo jobs</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:3px solid #213502;padding:24px 0px 0px 0px">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:112px;font-weight:700;line-height:1;letter-spacing:-3px;color:#1F4F59">8</p>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">data problems planted on purpose, each with a test</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:3px solid #213502;padding:24px 0px 0px 0px">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:112px;font-weight:700;line-height:1;letter-spacing:-3px;color:#1F4F59">16/16</p>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">automatic checks pass</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:3px solid #213502;padding:24px 0px 0px 0px">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:112px;font-weight:700;line-height:1;letter-spacing:-3px;color:#1F4F59">100%</p>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">of reasons traceable to what they used</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">5</p>
+<aside>Honestly, Sprint 0 was heavy on documents: the charter, stakeholder work and our individual research reports. This sprint we turned that research into a working prototype. The sprint goal came straight from our roadmap: Layla can see why a job was suggested and what is missing. We tested it on six demo students and six demo jobs, with eight data problems planted on purpose, and all sixteen automatic checks pass. Let me show it.</aside>
+</section>
+</div>
+<p class="notes"><b>5. sprint1</b> Honestly, Sprint 0 was heavy on documents: the charter, stakeholder work and our individual research reports. This sprint we turned that research into a working prototype. The sprint goal came straight from our roadmap: Layla can see why a job was suggested and what is missing. We tested it on six demo students and six demo jobs, with eight data problems planted on purpose, and all sixteen automatic checks pass. Let me show it.</p>
+<div class="frame" id="s6"><section id="demo-card" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Demo 1: what Layla sees</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">A plain summary, then one next step</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:64px;align-items:center">
+<img src="images/matches-top.png" alt="Layla’s matches: 2 can apply, 2 one thing to do, 2 not now or closed, and a lime card saying get Jira verified to unlock Aviation Analytics Intern" style="width:860px;height:590px;object-fit:contain;background:#FCFDF8;border:2px solid #DFE5D3;border-radius:28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#1F4F59">Summary first</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">How many jobs she can apply to now, and how many need one thing from her.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#1F4F59">Three colours, each with a word</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">Green can apply, yellow one thing to do, gray not now. No codes to learn.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#1F4F59">One next step</h3>
+<p style="font-size:32px;line-height:1.4;color:#4A5A3A">The lime card names the most useful action: get Jira verified.</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">6</p>
+<aside>Live demo, My matches, Layla. The first thing she reads is a summary: she can apply to two jobs now, and two more need one thing from her. Every result is one of the three answers. Then one lime card with her single most useful next step: get Jira verified, which unlocks the Emirates aviation analytics job. Below it is one line per job; opening a job shows why it was suggested and exactly what it requires. If the live demo fails, this screenshot shows the same state. First-time visitors also get a short guided tour and a glossary.</aside>
+</section>
+</div>
+<p class="notes"><b>6. demo-card</b> Live demo, My matches, Layla. The first thing she reads is a summary: she can apply to two jobs now, and two more need one thing from her. Every result is one of the three answers. Then one lime card with her single most useful next step: get Jira verified, which unlocks the Emirates aviation analytics job. Below it is one line per job; opening a job shows why it was suggested and exactly what it requires. If the live demo fails, this screenshot shows the same state. First-time visitors also get a short guided tour and a glossary.</p>
+<div class="frame" id="s7"><section id="demo-loop" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Demo 2: the skills-training loop</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">One verified skill changes the answer</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px;align-items:start">
+<div style="width:440px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;color:#1F4F59">1  Layla sends Jira to training</p>
+<div style="background:#E8EDDD;border-radius:28px;padding:16px;display:flex;align-items:center;justify-content:center">
+<img src="images/drawer.png" alt="Job details for Aviation Analytics Intern: Jira marked with a yellow exclamation and a button to send it to skills training" style="width:408px;height:380px;object-fit:contain;border-radius:16px">
+</div>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">From the job details, one button sends the missing skill to skills training.</p>
+</div>
+<div style="width:520px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;color:#1F4F59">2  Skills training checks her work</p>
+<div style="background:#E8EDDD;border-radius:28px;padding:16px;display:flex;align-items:center;justify-content:center">
+<img src="images/review.png" alt="Simulated skills-training review form: mark the skill as verified" style="width:488px;height:380px;object-fit:contain">
+</div>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">A reviewer marks Jira verified. This partner team is simulated in Sprint 1.</p>
+</div>
+<div style="width:640px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;color:#1F4F59">3  Her matches refresh</p>
+<div style="background:#E8EDDD;border-radius:28px;padding:16px;display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center">
+<img src="images/changed.png" alt="What changed: Aviation Analytics Intern moved from one thing to do to can apply, now number 1" style="width:608px;height:364px;object-fit:contain">
+</div>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">Aviation Analytics Intern moves to Can apply, now number 1. The old result is kept.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">7</p>
+<aside>This is the loop we will test together with the skills-training team, P06. One: from the job details, Layla sends Jira to skills training. Two: under Partner teams, a simulated reviewer checks her practice task and marks Jira verified; the profile team then saves a new version of her profile. Three: back on My matches she sees “Good news: Jira is now verified” and refreshes. The Emirates job moves from “One thing to do” to “Can apply”, now her number one. Results are never overwritten: the old one is kept, so we can always show what Layla saw and why.</aside>
+</section>
+</div>
+<p class="notes"><b>7. demo-loop</b> This is the loop we will test together with the skills-training team, P06. One: from the job details, Layla sends Jira to skills training. Two: under Partner teams, a simulated reviewer checks her practice task and marks Jira verified; the profile team then saves a new version of her profile. Three: back on My matches she sees “Good news: Jira is now verified” and refreshes. The Emirates job moves from “One thing to do” to “Can apply”, now her number one. Results are never overwritten: the old one is kept, so we can always show what Layla saw and why.</p>
+<div class="frame" id="s8"><section id="demo-coord" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Demo 3: help for newcomers and for staff</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">A guided tour, and a coordinator view</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:64px;align-items:start">
+<div style="width:800px;display:flex;flex-direction:column;gap:16px">
+<img src="images/tour.png" alt="Guided tour step 3 of 6 highlighting the next-step card" style="width:800px;height:500px;object-fit:cover;border:2px solid #DFE5D3;border-radius:28px">
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">First-time visitors get a 6-step tour and a glossary. A “How it works” page explains the whole co-op journey.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<img src="images/question.png" alt="Coordinator view: a question from Arjun asking why Jira shows as missing, with a reply box" style="width:600px;height:492px;object-fit:contain;background:#FCFDF8;border:2px solid #DFE5D3;border-radius:28px">
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">Students can ask about a result. The coordinator sees exactly what it used and can leave a correction note.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">8</p>
+<aside>Two kinds of help. Many students have never looked for a co-op placement, so the first visit opens a short welcome page that explains the seven-step journey, followed by a six-step tour of the screen; a glossary is always one click away. The second persona is Sara, the co-op coordinator. Arjun, another demo student, asked why Jira shows as missing when he runs an agile board every week. Sara can see exactly which inputs the result used, and nothing else from his profile. The cause: he typed a free-text phrase the system does not recognise as Jira. She leaves a correction note for the profile team; our module never edits another team’s records.</aside>
+</section>
+</div>
+<p class="notes"><b>8. demo-coord</b> Two kinds of help. Many students have never looked for a co-op placement, so the first visit opens a short welcome page that explains the seven-step journey, followed by a six-step tour of the screen; a glossary is always one click away. The second persona is Sara, the co-op coordinator. Arjun, another demo student, asked why Jira shows as missing when he runs an agile board every week. Sara can see exactly which inputs the result used, and nothing else from his profile. The cause: he typed a free-text phrase the system does not recognise as Jira. She leaves a correction note for the profile team; our module never edits another team’s records.</p>
+<div class="frame" id="s9"><section id="tests" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Evidence</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">16 of 16 automatic checks pass</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:64px;align-items:start">
+<img src="images/matrix.png" alt="Grid of 6 demo students against 6 demo jobs, each square green can apply, yellow one thing to do, or gray not a fit or closed, with planted problems D1 to D8 tagged" style="width:662px;height:580px;object-fit:contain;background:#FCFDF8;border:2px solid #DFE5D3;border-radius:28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:row;gap:20px;align-items:start">
+<div style="width:48px;height:48px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:28px;height:28px"></x-icon></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700">8 data problems, planted on purpose</p><p style="font-size:24px;color:#4A5A3A">Missing dates, unverified skills, closed and outdated jobs.</p></div>
+</div>
+<div style="display:flex;flex-direction:row;gap:20px;align-items:start">
+<div style="width:48px;height:48px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:28px;height:28px"></x-icon></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700">Every reason is traceable</p><p style="font-size:24px;color:#4A5A3A">162 of 162 reasons name what they used and which version.</p></div>
+</div>
+<div style="display:flex;flex-direction:row;gap:20px;align-items:start">
+<div style="width:48px;height:48px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:28px;height:28px"></x-icon></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700">Unknown is never shown as Can apply</p><p style="font-size:24px;color:#4A5A3A">0 mistakes in 156 requirement checks.</p></div>
+</div>
+<div style="display:flex;flex-direction:row;gap:20px;align-items:start">
+<div style="width:48px;height:48px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:28px;height:28px"></x-icon></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700">Old results are never overwritten</p><p style="font-size:24px;color:#4A5A3A">New information creates a new result; the old one is kept.</p></div>
+</div>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">Demo data only: this shows the logic works as designed, not real hiring accuracy.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">9</p>
+<aside>Before writing any code, we broke our own demo data in eight ways: a missing end date, a skill nobody verified, a skill typed in the student’s own words, a job with no requirements, a closed job, an outdated version of a job, a profile that changed after a result was saved, and a remote-only student facing an on-site job. Each one has a named test. The grid shows every demo student against every job. We also check that every reason is traceable and that nothing unknown is ever shown as “can apply”. To be clear about what this proves: the logic works as designed on demo data. It is not a claim about real hiring accuracy, which our brief explicitly forbids.</aside>
+</section>
+</div>
+<p class="notes"><b>9. tests</b> Before writing any code, we broke our own demo data in eight ways: a missing end date, a skill nobody verified, a skill typed in the student’s own words, a job with no requirements, a closed job, an outdated version of a job, a profile that changed after a result was saved, and a remote-only student facing an on-site job. Each one has a named test. The grid shows every demo student against every job. We also check that every reason is traceable and that nothing unknown is ever shown as “can apply”. To be clear about what this proves: the logic works as designed on demo data. It is not a claim about real hiring accuracy, which our brief explicitly forbids.</p>
+<div class="frame" id="s10"><section id="status" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Being honest about scope</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">What works, what is simulated, what comes next</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;border-top:6px solid #4E7808;padding:32px 0px 0px 0px">
+<div style="display:flex;flex-direction:row;gap:16px;align-items:center">
+<div style="width:56px;height:56px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:32px;height:32px"></x-icon></div>
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#213502">Works now</h3>
+</div>
+<p style="font-size:24px;color:#5E6A52">Runs in the browser and keeps its records</p>
+<ul style="font-size:32px;line-height:1.5;color:#213502">
+<li>Match rules and weights</li>
+<li>The three answers</li>
+<li>Reasons for every result</li>
+<li>Skills-training loop</li>
+<li>Questions and notes</li>
+<li>16 automatic checks</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;border-top:6px solid #C9B21E;padding:32px 0px 0px 0px">
+<div style="display:flex;flex-direction:row;gap:16px;align-items:center">
+<p style="width:56px;height:56px;line-height:56px;border-radius:50%;background:#C9B21E;color:#2B2600;text-align:center;font-size:32px;font-weight:700">!</p>
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#213502">Simulated</h3>
+</div>
+<p style="font-size:24px;color:#5E6A52">We stand in for things other teams own</p>
+<ul style="font-size:32px;line-height:1.5;color:#213502">
+<li>Student and job data: demo</li>
+<li>Skills-training review</li>
+<li>AI: no trained model yet</li>
+<li>Sign-in: switch by tab</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;border-top:6px solid #9AA38F;padding:32px 0px 0px 0px">
+<div style="display:flex;flex-direction:row;gap:16px;align-items:center">
+<p style="width:56px;height:56px;line-height:56px;border-radius:50%;background:#9AA38F;color:#213502;text-align:center;font-size:32px;font-weight:700">–</p>
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#213502">Planned</h3>
+</div>
+<p style="font-size:24px;color:#5E6A52">Each one has a sprint attached</p>
+<ul style="font-size:32px;line-height:1.5;color:#213502">
+<li>Joint test with P06, Sprint 2</li>
+<li>Test with classmates, Sprint 2</li>
+<li>Coordinator-labelled set, Sprint 4</li>
+<li>Free-text skill mapping, Sprint 4</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">10</p>
+<aside>We want to be clear about what is real. Works now means it runs and keeps its records in the browser. Simulated means we stand in for something we do not control yet: the partner teams’ student and job data, the skills-training team’s review step, the AI part, and sign-in. Planned means it has a sprint attached: the joint test with P06 and our first test with classmates in Sprint 2; the coordinator-labelled comparison set and free-text skill mapping in Sprint 4. The binder asks us to keep these three apart, and the prototype says the same thing on its Partner teams page.</aside>
+</section>
+</div>
+<p class="notes"><b>10. status</b> We want to be clear about what is real. Works now means it runs and keeps its records in the browser. Simulated means we stand in for something we do not control yet: the partner teams’ student and job data, the skills-training team’s review step, the AI part, and sign-in. Planned means it has a sprint attached: the joint test with P06 and our first test with classmates in Sprint 2; the coordinator-labelled comparison set and free-text skill mapping in Sprint 4. The binder asks us to keep these three apart, and the prototype says the same thing on its Partner teams page.</p>
+<div class="frame" id="s11"><section id="roles" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">How we work: roles</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">Five people, one owner for every piece of work</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:0px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;padding:0px 32px 0px 0px">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700;width:96px;height:96px;line-height:96px;text-align:center;border-radius:50%;background:#DCD964;color:#213502">AA</p>
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700;line-height:1.25">Alghala<br>Almansoori</p>
+<p style="font-size:24px;font-weight:700;color:#1F4F59">Scrum Master</p>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">Team lead; runs the meetings and keeps the board current.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;padding:0px 32px;border-left:2px solid #DFE5D3">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700;width:96px;height:96px;line-height:96px;text-align:center;border-radius:50%;background:#DCD964;color:#213502">CL</p>
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700;line-height:1.25">Che<br>Liu</p>
+<p style="font-size:24px;font-weight:700;color:#1F4F59">Product Owner</p>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">Orders the backlog; built the match rules; leads the demo.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;padding:0px 32px;border-left:2px solid #DFE5D3">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700;width:96px;height:96px;line-height:96px;text-align:center;border-radius:50%;background:#DCD964;color:#213502">MA</p>
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700;line-height:1.25">Maha<br>Abdulla</p>
+<p style="font-size:24px;font-weight:700;color:#1F4F59">Data</p>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">Demo students and jobs, the skill list, the data dictionary.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;padding:0px 32px;border-left:2px solid #DFE5D3">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700;width:96px;height:96px;line-height:96px;text-align:center;border-radius:50%;background:#DCD964;color:#213502">LJ</p>
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700;line-height:1.25">Leonard<br>Jiang Mingming</p>
+<p style="font-size:24px;font-weight:700;color:#1F4F59">Interface</p>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">Screens, guided tour, coordinator view, accessibility.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;padding:0px 0px 0px 32px;border-left:2px solid #DFE5D3">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700;width:96px;height:96px;line-height:96px;text-align:center;border-radius:50%;background:#DCD964;color:#213502">YY</p>
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700;line-height:1.25">Yonghan<br>Yang</p>
+<p style="font-size:24px;font-weight:700;color:#1F4F59">Testing</p>
+<p style="font-size:24px;line-height:1.4;color:#4A5A3A">The automatic checks; our Scrum of Scrums rep this sprint.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">Every task on our board has an owner, a reviewer, a due date and a clear “done” (team working agreement 1). Roles rotate between sprints.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">11</p>
+<aside>Now how we work together. Alghala leads the team and acts as Scrum Master: she runs our meetings and keeps the board current. I act as Product Owner and built the match rules. Maha owns the demo data and the shared skill list. Leonard owns the screens, the guided tour and accessibility. Yonghan owns testing and is our Scrum of Scrums representative this sprint. From our working agreements: every task has an owner, a reviewer, a due date and a clear definition of done, and nothing counts as done until the reviewer has checked it.</aside>
+</section>
+</div>
+<p class="notes"><b>11. roles</b> Now how we work together. Alghala leads the team and acts as Scrum Master: she runs our meetings and keeps the board current. I act as Product Owner and built the match rules. Maha owns the demo data and the shared skill list. Leonard owns the screens, the guided tour and accessibility. Yonghan owns testing and is our Scrum of Scrums representative this sprint. From our working agreements: every task has an owner, a reviewer, a due date and a clear definition of done, and nothing counts as done until the reviewer has checked it.</p>
+<div class="frame" id="s12"><section id="comms" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">How we work: communication</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">Where we talk, and how often</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:96px">
+<div style="flex:1;display:flex;flex-direction:column;gap:28px">
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#1F4F59">Channels</h3>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:center">
+<div style="width:72px;height:72px;border-radius:50%;background:#1F4F59;display:flex;align-items:center;justify-content:center"><x-icon name="Chat" style="color:#F5F7EE;width:36px;height:36px"></x-icon></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px">
+<p style="font-size:32px;font-weight:700">WhatsApp group</p>
+<p style="font-size:24px;color:#4A5A3A">Daily check-in and quick questions</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:center">
+<div style="width:72px;height:72px;border-radius:50%;background:#1F4F59;display:flex;align-items:center;justify-content:center"><x-icon name="Users" style="color:#F5F7EE;width:36px;height:36px"></x-icon></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px">
+<p style="font-size:32px;font-weight:700">Microsoft Teams</p>
+<p style="font-size:24px;color:#4A5A3A">Team calls, shared files and sprint reviews</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:center">
+<div style="width:72px;height:72px;border-radius:50%;background:#1F4F59;display:flex;align-items:center;justify-content:center"><x-icon name="CheckCircle" style="color:#F5F7EE;width:36px;height:36px"></x-icon></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px">
+<p style="font-size:32px;font-weight:700">Notion task board</p>
+<p style="font-size:24px;color:#4A5A3A">Every task with its owner, reviewer and due date</p>
+</div>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#1F4F59">Rhythm</h3>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:baseline;border-top:2px solid #DFE5D3;padding:16px 0px 0px 0px">
+<p style="font-size:24px;font-weight:700;color:#1F4F59;width:180px">Every day</p>
+<p style="font-size:32px;flex:1">Written check-in: done, next, stuck</p>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:baseline;border-top:2px solid #DFE5D3;padding:16px 0px 0px 0px">
+<p style="font-size:24px;font-weight:700;color:#1F4F59;width:180px">Mon and Thu</p>
+<p style="font-size:32px;flex:1">30-minute team call on Teams</p>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:baseline;border-top:2px solid #DFE5D3;padding:16px 0px 0px 0px">
+<p style="font-size:24px;font-weight:700;color:#1F4F59;width:180px">Every week</p>
+<p style="font-size:32px;flex:1">Scrum of Scrums with P01, P03, P06</p>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:baseline;border-top:2px solid #DFE5D3;padding:16px 0px 0px 0px">
+<p style="font-size:24px;font-weight:700;color:#1F4F59;width:180px">Every sprint</p>
+<p style="font-size:32px;flex:1">Planning, review, retrospective</p>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:center;flex-wrap:wrap">
+<p style="font-size:24px;font-weight:700;color:#1F4F59">Ground rules from our charter, 23 Oct</p>
+<p style="font-size:24px;background:#DCD964;color:#213502;border-radius:999px;padding:10px 24px">Urgent messages answered within 24 h</p>
+<p style="font-size:24px;background:#DCD964;color:#213502;border-radius:999px;padding:10px 24px">Absence flagged 4 h ahead</p>
+<p style="font-size:24px;background:#DCD964;color:#213502;border-radius:999px;padding:10px 24px">Disagreement: talk, then lead, then instructor</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">12</p>
+<aside>We use three channels, each with one job. WhatsApp for the daily written check-in: what I finished, what is next, where I am stuck. Teams for our twice-weekly calls, shared files and sprint reviews. Notion is the task board, and every task there has an owner and a reviewer. Once a week our representative joins the Scrum of Scrums with the teams we depend on. The ground rules at the bottom come from the team charter we all signed on 23 October: urgent messages answered within 24 hours, absences flagged four hours ahead, and a three-step way to settle disagreements.</aside>
+</section>
+</div>
+<p class="notes"><b>12. comms</b> We use three channels, each with one job. WhatsApp for the daily written check-in: what I finished, what is next, where I am stuck. Teams for our twice-weekly calls, shared files and sprint reviews. Notion is the task board, and every task there has an owner and a reviewer. Once a week our representative joins the Scrum of Scrums with the teams we depend on. The ground rules at the bottom come from the team charter we all signed on 23 October: urgent messages answered within 24 hours, absences flagged four hours ahead, and a three-step way to settle disagreements.</p>
+<div class="frame" id="s13"><section id="deps" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Scrum of Scrums</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">Who we depend on, and our backup plan</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:0px">
+<div style="display:flex;flex-direction:row;gap:32px;align-items:center;padding:0px 0px 12px 0px">
+<p style="font-size:24px;font-weight:700;color:#5E6A52;width:360px">Partner team</p>
+<p style="font-size:24px;font-weight:700;color:#5E6A52;flex:1">What they send or receive</p>
+<p style="font-size:24px;font-weight:700;color:#5E6A52;width:440px">Today</p>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px;align-items:center;border-top:2px solid #DFE5D3;padding:20px 0px">
+<p style="font-size:32px;font-weight:700;width:360px">P01 Profiles</p>
+<p style="font-size:28px;color:#4A5A3A;flex:1">Student profile, skills and version</p>
+<p style="font-size:24px;width:440px"><span style="background:#F6F0C2;color:#5C4F00;border-radius:999px;padding:6px 20px">Using our demo data</span></p>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px;align-items:center;border-top:2px solid #DFE5D3;padding:20px 0px">
+<p style="font-size:32px;font-weight:700;width:360px">P03 Job listings</p>
+<p style="font-size:28px;color:#4A5A3A;flex:1">Approved job version and open or closed</p>
+<p style="font-size:24px;width:440px"><span style="background:#F6F0C2;color:#5C4F00;border-radius:999px;padding:6px 20px">Using our demo data</span></p>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px;align-items:center;border-top:2px solid #DFE5D3;padding:20px 0px">
+<p style="font-size:32px;font-weight:700;width:360px">P06 Skills training</p>
+<p style="font-size:28px;color:#4A5A3A;flex:1">Missing skill out; verified skill back via P01</p>
+<p style="font-size:24px;width:440px"><span style="background:#F6F0C2;color:#5C4F00;border-radius:999px;padding:6px 20px">Simulated; joint test Sprint 2</span></p>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px;align-items:center;border-top:2px solid #DFE5D3;border-bottom:2px solid #DFE5D3;padding:20px 0px">
+<p style="font-size:32px;font-weight:700;width:360px">P04 Applications</p>
+<p style="font-size:28px;color:#4A5A3A;flex:1">Optional link to an application</p>
+<p style="font-size:24px;width:440px"><span style="background:#E7EBDF;color:#4A5A3A;border-radius:999px;padding:6px 20px">Not needed yet</span></p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px;align-items:start;background:#E8EDDD;border-radius:28px;padding:32px 40px">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700;color:#1F4F59;width:300px">Our 3 asks next week</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;line-height:1.35">1  P06: agree the fields we exchange, then test together.</p>
+<p style="font-size:28px;line-height:1.35">2  P01: own the shared skill list; P05 and P06 add to it.</p>
+<p style="font-size:28px;line-height:1.35">3  P01: save a new profile version when a skill is verified.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">13</p>
+<aside>This is our side of the shared dependency board. Every input has a backup we control, so no sprint goal waits on another team: profiles and job listings come from our own demo data for now, and the skills-training team is simulated. The one handoff that has to become real is with P06, because it is the only one where our output changes their work and their output changes ours. At the next Scrum of Scrums we will bring three asks: agree the fields with P06 and schedule a joint test, settle who owns the shared skill list, and agree that P01 saves a new profile version when a skill is verified, so that our module never stores its own judgments about skills. These asks are our proposals; the other teams have not agreed to them yet.</aside>
+</section>
+</div>
+<p class="notes"><b>13. deps</b> This is our side of the shared dependency board. Every input has a backup we control, so no sprint goal waits on another team: profiles and job listings come from our own demo data for now, and the skills-training team is simulated. The one handoff that has to become real is with P06, because it is the only one where our output changes their work and their output changes ours. At the next Scrum of Scrums we will bring three asks: agree the fields with P06 and schedule a joint test, settle who owns the shared skill list, and agree that P01 saves a new profile version when a skill is verified, so that our module never stores its own judgments about skills. These asks are our proposals; the other teams have not agreed to them yet.</p>
+<div class="frame" id="s14"><section id="retro" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Sprint retrospective</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">What we learned from Sprints 0 and 1</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;border-top:6px solid #4E7808;padding:32px 0px 0px 0px">
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#4E7808">Worked well</h3>
+<ul style="font-size:32px;line-height:1.45;color:#213502">
+<li>Our separate research pointed to one design</li>
+<li>Planting problems in the data made testing concrete</li>
+<li>Charter and working agreements set early</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;border-top:6px solid #C9B21E;padding:32px 0px 0px 0px">
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#7A6A00">To improve</h3>
+<ul style="font-size:32px;line-height:1.45;color:#213502">
+<li>Sprint 0 produced documents, not software</li>
+<li>We wrote in parallel and never joined the work up</li>
+<li>Some tasks had no named reviewer</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;border-top:6px solid #1F4F59;padding:32px 0px 0px 0px">
+<h3 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;color:#1F4F59">What we change</h3>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:2px"><p style="font-size:32px;line-height:1.3">Done means it runs in the prototype</p><p style="font-size:24px;font-weight:700;color:#1F4F59">Alghala</p></div>
+<div style="display:flex;flex-direction:column;gap:2px"><p style="font-size:32px;line-height:1.3">Build the thinnest end-to-end path first</p><p style="font-size:24px;font-weight:700;color:#1F4F59">Che</p></div>
+<div style="display:flex;flex-direction:column;gap:2px"><p style="font-size:32px;line-height:1.3">A named reviewer on every task</p><p style="font-size:24px;font-weight:700;color:#1F4F59">Yonghan</p></div>
+</div>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">We check these changes at the start of the next retrospective.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">14</p>
+<aside>Our retrospective, honestly. What worked: when we compared our individual research, we had arrived at the same design, and planting problems in the data before coding made testing concrete. What did not: Sprint 0 produced a lot of documents and no running software, because everyone wrote in parallel and nothing brought the work together. So we change three things, each with an owner: a task is only done when it runs in the prototype; we build the thinnest end-to-end path first, then features; and every task gets a named reviewer. We will check these at the next retrospective.</aside>
+</section>
+</div>
+<p class="notes"><b>14. retro</b> Our retrospective, honestly. What worked: when we compared our individual research, we had arrived at the same design, and planting problems in the data before coding made testing concrete. What did not: Sprint 0 produced a lot of documents and no running software, because everyone wrote in parallel and nothing brought the work together. So we change three things, each with an owner: a task is only done when it runs in the prototype; we build the thinnest end-to-end path first, then features; and every task gets a named reviewer. We will check these at the next retrospective.</p>
+<div class="frame" id="s15"><section id="next" data-transition="fade" style="background:#DCD964;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:700;color:#1F4F59">Next: Sprint 2</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.08;letter-spacing:-1.5px;color:#213502;width:1500px">Make the P06 handoff real, and test with people who did not build it</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:3px solid #213502;padding:24px 0px 0px 0px">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700">Joint test with P06</p>
+<p style="font-size:24px;line-height:1.4;color:#3A4A1E">Agree the fields, then run missing skill → verified → refresh together.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:3px solid #213502;padding:24px 0px 0px 0px">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700">Test with classmates</p>
+<p style="font-size:24px;line-height:1.4;color:#3A4A1E">Three classmates find a reason, a missing skill and “Ask about this” within 60 seconds.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:3px solid #213502;padding:24px 0px 0px 0px">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700">Accessibility</p>
+<p style="font-size:24px;line-height:1.4;color:#3A4A1E">Keyboard-only path through the main journey; contrast checked and recorded.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:3px solid #213502;padding:24px 0px 0px 0px">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:32px;font-weight:700">Labelled examples</p>
+<p style="font-size:24px;line-height:1.4;color:#3A4A1E">Start 20 coordinator-labelled pairs for the Sprint 4 comparison.</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;justify-content:space-between;align-items:end;gap:48px">
+<p style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1;color:#1F4F59">Questions?</p>
+<p style="font-size:24px;color:#3A4A1E;text-align:right">Team 5, P05 Opportunity Matcher</p>
+</div>
+<aside>Next sprint we make the P06 handoff real: agree the fields with the skills-training team and run the missing skill, verified, refresh loop together, which is the jointly tested handoff the course asks for. We also run our first test with three classmates who did not build it, check that the main journey works with a keyboard alone and that the contrast is good enough, and start the coordinator-labelled examples we need for the Sprint 4 comparison against the plain rules. Thank you. We are happy to take questions, or to show any part of the prototype again.</aside>
+</section>
+</div>
+<p class="notes"><b>15. next</b> Next sprint we make the P06 handoff real: agree the fields with the skills-training team and run the missing skill, verified, refresh loop together, which is the jointly tested handoff the course asks for. We also run our first test with three classmates who did not build it, check that the main journey works with a keyboard alone and that the contrast is good enough, and start the coordinator-labelled examples we need for the Sprint 4 comparison against the plain rules. Thank you. We are happy to take questions, or to show any part of the prototype again.</p>
+</main>
+<script>
+const ICONS = {
+  Check: '<path d="M20 6 9 17l-5-5"/>',
+  CheckCircle: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+  Users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  Chat: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>'
+};
+customElements.define('x-icon', class extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">' + (ICONS[this.getAttribute('name')] || '') + '</svg>';
+  }
+});
+customElements.define('x-connector', class extends HTMLElement {
+  connectedCallback() {
+    const w = parseFloat(this.style.width) || 48, sw = parseFloat(this.style.borderWidth) || 2;
+    this.innerHTML = `<svg width="${w}" height="24" viewBox="0 0 ${w} 24" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12H${w - 3}M${w - 11} 4l8 8-8 8"/></svg>`;
+  }
+});
+function fit() {
+  document.querySelectorAll('.frame').forEach(f => {
+    const s = f.querySelector('section'); if (s) s.style.transform = 'scale(' + (f.clientWidth / 1920) + ')';
+  });
+}
+addEventListener('resize', fit); fit();
+</script>
+</body></html>

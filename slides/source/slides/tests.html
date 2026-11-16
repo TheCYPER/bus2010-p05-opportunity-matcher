@@ -1,0 +1,31 @@
+<section id="tests" data-transition="fade" style="background:#F5F7EE;color:#213502;font-family:'Figtree', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;color:#1F4F59">Evidence</p>
+<h2 style="font-family:'Bricolage Grotesque', Arial, sans-serif;font-size:64px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#213502">16 of 16 automatic checks pass</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:64px;align-items:start">
+<img src="/_blob/7c3ce153a1d1daa9dde0e13eeddb42d8" alt="Grid of 6 demo students against 6 demo jobs, each square green can apply, yellow one thing to do, or gray not a fit or closed, with planted problems D1 to D8 tagged" style="width:662px;height:580px;object-fit:contain;background:#FCFDF8;border:2px solid #DFE5D3;border-radius:28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:row;gap:20px;align-items:start">
+<div style="width:48px;height:48px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:28px;height:28px"></x-icon></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700">8 data problems, planted on purpose</p><p style="font-size:24px;color:#4A5A3A">Missing dates, unverified skills, closed and outdated jobs.</p></div>
+</div>
+<div style="display:flex;flex-direction:row;gap:20px;align-items:start">
+<div style="width:48px;height:48px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:28px;height:28px"></x-icon></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700">Every reason is traceable</p><p style="font-size:24px;color:#4A5A3A">162 of 162 reasons name what they used and which version.</p></div>
+</div>
+<div style="display:flex;flex-direction:row;gap:20px;align-items:start">
+<div style="width:48px;height:48px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:28px;height:28px"></x-icon></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700">Unknown is never shown as Can apply</p><p style="font-size:24px;color:#4A5A3A">0 mistakes in 156 requirement checks.</p></div>
+</div>
+<div style="display:flex;flex-direction:row;gap:20px;align-items:start">
+<div style="width:48px;height:48px;border-radius:50%;background:#4E7808;display:flex;align-items:center;justify-content:center"><x-icon name="Check" style="color:#F1F5E6;width:28px;height:28px"></x-icon></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px"><p style="font-size:32px;font-weight:700">Old results are never overwritten</p><p style="font-size:24px;color:#4A5A3A">New information creates a new result; the old one is kept.</p></div>
+</div>
+<p style="font-size:24px;line-height:1.4;color:#5E6A52">Demo data only: this shows the logic works as designed, not real hiring accuracy.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#5E6A52">Team 5, P05 Opportunity Matcher</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;font-size:24px;color:#5E6A52;text-align:right">9</p>
+<aside>Before writing any code, we broke our own demo data in eight ways: a missing end date, a skill nobody verified, a skill typed in the student’s own words, a job with no requirements, a closed job, an outdated version of a job, a profile that changed after a result was saved, and a remote-only student facing an on-site job. Each one has a named test. The grid shows every demo student against every job. We also check that every reason is traceable and that nothing unknown is ever shown as “can apply”. To be clear about what this proves: the logic works as designed on demo data. It is not a claim about real hiring accuracy, which our brief explicitly forbids.</aside>
+</section>

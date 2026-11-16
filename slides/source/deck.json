@@ -1,0 +1,20 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-11-08T09:25:00Z" },
+  "lists": "css",
+  "title": "Team 5 · P05 Progress Review",
+  "cover": "cover",
+  "order": ["cover", "problem", "platform", "states", "sprint1", "demo-card", "demo-loop", "demo-coord", "tests", "status", "roles", "comms", "deps", "retro", "next"],
+  "sections": {
+    "s1": { "description": "The problem P05 owns and where it fits in the co-op platform.", "start": "cover" },
+    "s2": { "description": "What we built in Sprint 1, shown through a three-part demo.", "start": "sprint1" },
+    "s3": { "description": "Evidence that it works, and an honest list of what is still simulated.", "start": "tests" },
+    "s4": { "description": "How the team splits work, communicates and coordinates with other teams.", "start": "roles" },
+    "s5": { "description": "What we learned and what Sprint 2 will deliver.", "start": "retro" }
+  },
+  "faces": {
+    "bricolage-grotesque": { "family": "Bricolage Grotesque", "href": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500..700&display=swap" },
+    "figtree": { "family": "Figtree", "href": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" }
+  },
+  "designSystems": []
+}
