@@ -1,0 +1,40 @@
+<section id="tests" data-transition="fade">
+<div class="head">
+<p class="eyebrow">Test results and human safeguards</p>
+<h2 class="title">Checked on live data, compared with the rules</h2>
+</div>
+<div class="row" style="gap:56px">
+<div class="col-lg" style="flex:1">
+<div class="stats" style="grid-template-columns:1fr 1fr 1fr">
+<div class="stat"><p class="stat-num">21/21</p><p class="stat-label">automatic checks pass</p></div>
+<div class="stat"><p class="stat-num">15/15</p><p class="stat-label">live database checks, incl. access rules</p></div>
+<div class="stat"><p class="stat-num">16/16</p><p class="stat-label">examples in the partner guide run</p></div>
+</div>
+<table class="results">
+<tr><th style="width:58%">On 30 labelled student–internship pairs</th><th style="width:21%;text-align:right">Rules</th><th style="width:21%;text-align:right">With AI</th></tr>
+<tr><td>Top suggestion is labelled a good fit</td><td style="text-align:right">33%</td><td style="text-align:right">33%</td></tr>
+<tr><td>Pairs in label order, full ranking</td><td style="text-align:right">71%</td><td style="text-align:right">71%</td></tr>
+<tr><td>Pairs in label order, interest points only</td><td style="text-align:right">89%</td><td style="text-align:right">93%</td></tr>
+<tr><td>Changed who can apply</td><td style="text-align:right">–</td><td style="text-align:right">0 of 30</td></tr>
+</table>
+<p class="note">Tested with Layla, Arjun and Noura: the AI swapped one internship in each top 3 for one closer to their goal. The labels are provisional, written by Team 5 until a coordinator labels pairs; a gap of about 1.5 pairs is too small to call the AI better.</p>
+</div>
+<div class="soft-panel" style="width:600px;gap:20px">
+<div class="col" style="gap:6px">
+<p class="h3-teal">One failure we found</p>
+<p class="body">“customer journey mapping” → Healthcare operations, 0.856. Wrong: it means UX research.</p>
+</div>
+<div class="col" style="gap:6px">
+<p class="h3-teal">Corrective action</p>
+<p class="body">The coordinator rejects it. Next: add “customer journey” to UX research’s synonyms and run the comparison again.</p>
+</div>
+<div class="col" style="gap:6px">
+<p class="h3-teal">Human review steps</p>
+<p class="body">The coordinator confirms every skill suggestion. P01 decides whether a profile changes. P06 verifies skills. The co-op office approves every placement.</p>
+</div>
+</div>
+</div>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">5</p>
+<aside>What we tested. 21 automatic checks pass, including three new ones for the AI: it never changes who can apply, it always says which model produced a score, and its skill suggestions never count as a requirement. 15 checks run against the live database, including the access rules: a team cannot write another team’s tables, versions cannot be overwritten, nobody can delete. Every example in the guide for other teams was run against the live data. We tested three students by hand: in each case the AI swapped one internship in the top 3 for one closer to the student’s goal. On 30 labelled pairs the AI orders interests slightly better, 93 against 89 percent, but that is about one and a half pairs, and the labels were written by us as a stand-in for a coordinator, so we do not claim the AI is better. The failure: “customer journey mapping” was matched to healthcare operations. The correction is a person rejecting it and a synonym fix in the data. People stay in charge at four points: coordinator, P01, P06 and the co-op office.</aside>
+</section>
