@@ -177,17 +177,67 @@ Object.entries(topByStudent).forEach(([sid, { ranked, at }]) => {
     }
   });
 });
-const QUESTIONS = ['I used this skill in my capstone project. Why does it show as missing?', 'My dates are on my profile. Why can this not be confirmed?',
-  'Why is this job below one I care less about?', 'Does a skill I listed myself count at all?', 'The job is hybrid. Why am I not a fit?'];
-const ANSWERS = ['Checked: the skill is self-declared, so it counts as nice to have only. I sent it to P06 for a short review.',
-  'Your end date is missing in the submitted profile version. Please add it in P01; the result updates after that.',
-  'Order within the same status follows your sector and role choices. I left a note for P01 to update your interests.'];
-[...recs.values()].filter((r) => r.method_version === 'rules-1.0.0' && !DEMO_STUDENTS.includes(r.student_id))
-  .filter(() => R.chance(0.008)).slice(0, 25).forEach((r) => {
-    const reviewed = R.chance(0.4);
-    challenges.push({ challenge_id: `CH-${String(++chSeq).padStart(3, '0')}`, recommendation_id: r.recommendation_id, raised_by: r.student_id, question: R.pick(QUESTIONS),
-      status: reviewed ? 'reviewed' : 'open', resolution: reviewed ? R.pick(ANSWERS) : null, resolved_by: reviewed ? W.coordinator : null, resolved_at: reviewed ? '2026-11-14T13:00:00Z' : null });
-  });
+// A student's question and the coordinator's answer follow from what the stored result actually says,
+// so a question about a missing skill is only ever raised on a result that lacks that skill.
+const blocking = (r) => r.status === 'not_eligible' ? r.mandatory.find((x) => x.state === 'not_met')
+  : r.status === 'cannot_confirm' ? r.mandatory.find((x) => x.state === 'cannot_confirm') : undefined;
+function kindOf(r) {
+  if (r.status === 'excluded') return 'closed';
+  const c = blocking(r);
+  if (!c) return 'ranking';
+  const missing = c.state === 'cannot_confirm' ? '_missing' : '';
+  return c.kind === 'skill' ? (c.state === 'cannot_confirm' ? 'skill_self' : 'skill_missing') : `${c.kind}${missing}`;
+}
+function challengeFor(r) {
+  const c = blocking(r);
+  const name = c ? W.skillLabel[c.skill_id] || c.skill_id : '';
+  switch (kindOf(r)) {
+    case 'closed': return { question: 'Why can I not apply to this job any more?',
+      answer: `The listing is no longer open (${r.status_reason}). It stays in your list so nothing disappears without a reason.` };
+    case 'skill_self': return { question: `I listed ${name} on my profile. Why does it not count for this job?`,
+      answer: `${name} is on your profile as self-declared. A requirement needs reviewed evidence, so for now it counts only as nice to have. I sent it to P06 for a short review.` };
+    case 'skill_missing': return { question: `I used ${name} in my capstone project. Why does it show as missing?`,
+      answer: `${name} is not on your submitted profile (v${r.profile_version}). Add it in P01 with the capstone as evidence; P06 reviews it and the result updates.` };
+    case 'availability_missing': {
+      const what = c.detail.includes('start') && c.detail.includes('end') ? 'start or end date' : c.detail.includes('end') ? 'end date' : 'start date';
+      return { question: 'My dates are on my profile. Why can this not be confirmed?',
+        answer: `Your submitted profile (v${r.profile_version}) has no ${what}. Please add it in P01; the result updates after that.` };
+    }
+    case 'availability': return { question: 'Why do my dates not fit this job?', answer: `${c.detail}. If your dates have changed, update them in P01.` };
+    case 'arrangement_missing': return { question: 'Why can my fit for this job not be confirmed?',
+      answer: 'Your profile does not say how you want to work (on-site, hybrid or remote). Add it in P01.' };
+    case 'arrangement': {
+      const kind = c.label.split(' work in ')[0];
+      return { question: `The job is ${kind}. Why am I not a fit?`, answer: `${c.detail}. If you can work ${kind}, change it in P01.` };
+    }
+    default: return { question: 'Why is this job below one I care less about?',
+      answer: 'You can apply to this job. Jobs you can apply to come first; among them the order follows your sector, role and city choices. I left a note for P01 to update your interests.' };
+  }
+}
+// 25 questions spread over the kinds of result students ask about, one question per student. Kinds the stored
+// results do not contain are skipped, and the rest is filled with ranking questions.
+const CHALLENGES = 25;
+const QUOTA = [['skill_self', 8], ['skill_missing', 7], ['availability', 3], ['availability_missing', 2], ['arrangement', 2], ['arrangement_missing', 1], ['ranking', CHALLENGES]];
+const askable = [...recs.values()].filter((r) => r.method_version === 'rules-1.0.0' && !DEMO_STUDENTS.includes(r.student_id) && r.opportunity_version != null);
+const asked = [];
+QUOTA.forEach(([kind, n]) => {
+  const pool = askable.filter((r) => kindOf(r) === kind);
+  let taken = 0;
+  while (taken < n && asked.length < CHALLENGES) {
+    const left = pool.filter((r) => !asked.some((a) => a.student_id === r.student_id));
+    if (!left.length) break;
+    asked.push(R.pick(left));
+    taken++;
+  }
+});
+const askedInOrder = [...asked].sort((a, b) => a.student_id.localeCompare(b.student_id) || a.opportunity_id.localeCompare(b.opportunity_id));
+askedInOrder.forEach((r) => {
+  const reviewed = R.chance(0.4);
+  const t = challengeFor(r);
+  challenges.push({ challenge_id: `CH-${String(++chSeq).padStart(3, '0')}`, recommendation_id: r.recommendation_id, raised_by: r.student_id, question: t.question,
+    status: reviewed ? 'reviewed' : 'open', resolution: reviewed ? t.answer : null, resolved_by: reviewed ? W.coordinator : null, resolved_at: reviewed ? '2026-11-14T13:00:00Z' : null });
+});
+log('challenges by kind', Object.fromEntries(QUOTA.map(([k]) => [k, `${askedInOrder.filter((r) => kindOf(r) === k).length} of ${askable.filter((r) => kindOf(r) === k).length}`])));
 
 // ---------- coordinator labels (provisional stand-in, see docs) ----------
 const LABELS = {

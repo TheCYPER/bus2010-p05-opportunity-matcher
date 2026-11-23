@@ -33,6 +33,8 @@ All people, employers, records and decisions are synthetic.
 | `scripts/` | Seed generator, team-key rotation, sandbox reset, live verification, guide example runner. |
 | `docs/SUPABASE_GUIDE.md` | Guide for the other six teams (connect, ownership, data dictionary, rules, hand-off recipes). |
 | `docs/AI_METHOD.md` | Sprint 2 AI method record: goal, success criteria, CRISP-DM mapping, results, failure and correction, limits. |
+| `slides/sprint2/project/` | Sprint 2 review deck, 6 slides (Claude Slides sources: `deck.json`, `deck.css`, one HTML file per slide with speaker notes). `python3 slides/build_sprint2.py` builds `slides/sprint2/deck.html`; `slides/Team5-P05-Sprint2-Review.pdf` is the printed copy. Screenshots in `slides/images2/`. |
+| `sprint-3/`, `slides/sprint3/project/` | Sprint 3 record (`sprint-3/README.md`: stories, demo, unified look, retrospective, impediment) and its 7-slide review deck. `python3 slides/build_sprint3.py` builds `slides/sprint3/deck.html`; `slides/Team5-P05-Sprint3-Review.pdf` is the printed copy. Screenshots in `slides/images3/`. |
 
 ## Sprint 2 additions to the demo
 

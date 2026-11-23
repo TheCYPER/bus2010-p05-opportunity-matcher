@@ -1,0 +1,36 @@
+<section id="crisp" data-transition="fade">
+<div class="head">
+<p class="eyebrow">CRISP-DM and PMI-CPMAI</p>
+<h2 class="title">Six phases, applied to one bounded AI feature</h2>
+</div>
+<div class="grid3">
+<div class="card">
+<div class="card-head"><p class="phase-num">1</p><p class="h3">Business understanding</p></div>
+<p class="body">Students write goals and skills in their own words; rules cannot read meaning. Success means the two criteria on slide 1.</p>
+</div>
+<div class="card">
+<div class="card-head"><p class="phase-num">2</p><p class="h3">Data understanding</p></div>
+<p class="body">390 student profiles, 178 open internships, 44 skill terms. Gaps kept visible: missing dates, unverified skills, 23 free-text skills.</p>
+</div>
+<div class="card">
+<div class="card-head"><p class="phase-num">3</p><p class="h3">Data preparation</p></div>
+<p class="body">One text per goal, internship and skill (its label plus synonyms), turned into 1,135 embeddings stored in the shared database.</p>
+</div>
+<div class="card">
+<div class="card-head"><p class="phase-num">4</p><p class="h3">Modelling · model development</p></div>
+<p class="body">Pretrained gte-small sentence embeddings and cosine similarity; thresholds set from 67,284 goal–job pairs. We trained nothing.</p>
+</div>
+<div class="card">
+<div class="card-head"><p class="phase-num">5</p><p class="h3">Evaluation</p></div>
+<p class="body">21 automatic checks, 30 labelled pairs compared with the rules baseline, and one failure traced to its cause.</p>
+</div>
+<div class="card">
+<div class="card-head"><p class="phase-num">6</p><p class="h3">Deployment · operationalization</p></div>
+<p class="body">Live in the prototype and a small cloud function; a person confirms every suggestion; each result stores its method version.</p>
+</div>
+</div>
+<p class="note">Phase 6 feeds back into phase 3: the wrong suggestion we found becomes a synonym fix in the data, not a new model.</p>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">2</p>
+<aside>We followed the six phases that CRISP-DM and PMI’s CPMAI share. Business understanding: students describe what they want in their own words, and rules can’t read meaning. Data understanding: the shared database has 390 usable student profiles, 178 open internships and 44 skill terms, and we kept the messy parts visible, such as missing dates, skills nobody verified and free-text skills. Data preparation: one text per goal, internship and skill, turned into embeddings. Modelling: we did not train a model; we use the pretrained gte-small sentence model and cosine similarity, with thresholds set from the real score distribution. Evaluation: automatic checks plus a comparison with the rules on labelled pairs. Deployment: it runs in the prototype, a person confirms every suggestion, and every result records which method made it. The loop back matters: the failure we found is fixed in the data, not by changing the model.</aside>
+</section>

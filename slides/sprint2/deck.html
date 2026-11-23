@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 · P05 Sprint 2 Review</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500..700&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="project/deck.css">
+<style>
+body{margin:0;background:#2E3328;font-family:Figtree,Arial,sans-serif}
+.deck{display:flex;flex-direction:column;align-items:center;gap:20px;padding:32px 16px}
+.frame{width:min(100%,1280px);aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.frame>section{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;box-sizing:border-box;overflow:hidden}
+.frame section *{margin:0}
+.frame section aside{display:none}
+.frame section img{display:block}
+.frame section table{border-collapse:separate;border-spacing:0;border-top:2px solid #C5CEB5}
+.frame section th,.frame section td{padding:.35em .6em;text-align:left;border-bottom:2px solid #DFE5D3}
+.frame section th{font-weight:700}
+x-icon{display:inline-block} x-icon svg{width:100%;height:100%;display:block}
+.notes{width:min(100%,1280px);margin:0 0 28px;color:#D9DFCD;font-size:14px;line-height:1.55}
+.notes b{color:#DCD964;margin-right:6px}
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  body{background:#fff} .deck{padding:0;gap:0} .notes{display:none}
+  .frame{width:1920px;height:1080px;aspect-ratio:auto;border-radius:0;box-shadow:none;break-after:page}
+  .frame>section{transform:none!important}
+}
+</style></head><body>
+<main class="deck">
+<div class="frame" id="s1"><section id="goals" class="lead" data-transition="fade">
+<div class="col" style="width:960px">
+<p class="eyebrow">BUS2010 co-op platform, Sprint 2 review · Team 5, project P05 · 17 November 2026</p>
+</div>
+<div class="col" style="width:960px;gap:20px">
+<h1 class="display">Opportunity Matcher</h1>
+<p class="subtitle">Real AI and live shared data, with the same plain answers.</p>
+</div>
+<div class="col-lg" style="width:960px">
+<div class="col" style="gap:6px">
+<p class="eyebrow">Goal</p>
+<p class="text">Show each student which open internships fit and why, with AI that reads meaning, and never let the AI decide who can apply.</p>
+</div>
+<div class="tick-row">
+<div class="tick"><x-icon name="Check" class="tick-icon"></x-icon></div>
+<div class="col" style="gap:2px;flex:1"><p class="strong">Success 1: the AI never changes who can apply</p><p class="body">Measured: 0 changes across 36 student–job pairs.</p></div>
+</div>
+<div class="tick-row">
+<div class="tick"><x-icon name="Check" class="tick-icon"></x-icon></div>
+<div class="col" style="gap:2px;flex:1"><p class="strong">Success 2: every AI result is labelled, every suggestion waits for a person</p><p class="body">Model and method version on each result; the coordinator confirms.</p></div>
+</div>
+</div>
+<p class="note" style="width:960px">Alghala Almansoori, Maha Abdulla, Che Liu, Leonard Jiang Mingming, Yonghan Yang</p>
+<div class="teal-panel">
+<p class="panel-title">User stories</p>
+<div class="story"><p class="story-who">Student</p><p class="story-text">I want my top 3 internships with plain reasons, so I know where to apply first.</p></div>
+<div class="story"><p class="story-who">Student</p><p class="story-text">I want to see the one missing skill and send it to training, so I can unlock a job.</p></div>
+<div class="story"><p class="story-who">Coordinator</p><p class="story-text">I want to confirm or reject each AI skill suggestion, so no profile changes without a person.</p></div>
+<div class="story"><p class="story-who">Partner team</p><p class="story-text">We want one shared database with our own write key, so all seven modules use the same records.</p></div>
+</div>
+<aside>We are Team 5, and our part of the co-op platform is P05, opportunity matching. In Sprint 1 the matching was rules only, and the “AI helper” was simulated word matching. In Sprint 2 we made the AI real and connected the prototype to live data that all seven teams can share. Our goal: show each student which open internships fit and why, using AI that reads meaning, while the AI never decides who can apply. We set two success criteria and both are measured: the AI changed eligibility in zero of 36 student–job pairs, and every AI result is labelled with its model and method, with every skill suggestion waiting for a person. On the right are the four user stories this sprint delivers.</aside>
+</section>
+</div>
+<p class="notes"><b>1. goals</b> We are Team 5, and our part of the co-op platform is P05, opportunity matching. In Sprint 1 the matching was rules only, and the “AI helper” was simulated word matching. In Sprint 2 we made the AI real and connected the prototype to live data that all seven teams can share. Our goal: show each student which open internships fit and why, using AI that reads meaning, while the AI never decides who can apply. We set two success criteria and both are measured: the AI changed eligibility in zero of 36 student–job pairs, and every AI result is labelled with its model and method, with every skill suggestion waiting for a person. On the right are the four user stories this sprint delivers.</p>
+<div class="frame" id="s2"><section id="crisp" data-transition="fade">
+<div class="head">
+<p class="eyebrow">CRISP-DM and PMI-CPMAI</p>
+<h2 class="title">Six phases, applied to one bounded AI feature</h2>
+</div>
+<div class="grid3">
+<div class="card">
+<div class="card-head"><p class="phase-num">1</p><p class="h3">Business understanding</p></div>
+<p class="body">Students write goals and skills in their own words; rules cannot read meaning. Success means the two criteria on slide 1.</p>
+</div>
+<div class="card">
+<div class="card-head"><p class="phase-num">2</p><p class="h3">Data understanding</p></div>
+<p class="body">390 student profiles, 178 open internships, 44 skill terms. Gaps kept visible: missing dates, unverified skills, 23 free-text skills.</p>
+</div>
+<div class="card">
+<div class="card-head"><p class="phase-num">3</p><p class="h3">Data preparation</p></div>
+<p class="body">One text per goal, internship and skill (its label plus synonyms), turned into 1,135 embeddings stored in the shared database.</p>
+</div>
+<div class="card">
+<div class="card-head"><p class="phase-num">4</p><p class="h3">Modelling · model development</p></div>
+<p class="body">Pretrained gte-small sentence embeddings and cosine similarity; thresholds set from 67,284 goal–job pairs. We trained nothing.</p>
+</div>
+<div class="card">
+<div class="card-head"><p class="phase-num">5</p><p class="h3">Evaluation</p></div>
+<p class="body">21 automatic checks, 30 labelled pairs compared with the rules baseline, and one failure traced to its cause.</p>
+</div>
+<div class="card">
+<div class="card-head"><p class="phase-num">6</p><p class="h3">Deployment · operationalization</p></div>
+<p class="body">Live in the prototype and a small cloud function; a person confirms every suggestion; each result stores its method version.</p>
+</div>
+</div>
+<p class="note">Phase 6 feeds back into phase 3: the wrong suggestion we found becomes a synonym fix in the data, not a new model.</p>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">2</p>
+<aside>We followed the six phases that CRISP-DM and PMI’s CPMAI share. Business understanding: students describe what they want in their own words, and rules can’t read meaning. Data understanding: the shared database has 390 usable student profiles, 178 open internships and 44 skill terms, and we kept the messy parts visible, such as missing dates, skills nobody verified and free-text skills. Data preparation: one text per goal, internship and skill, turned into embeddings. Modelling: we did not train a model; we use the pretrained gte-small sentence model and cosine similarity, with thresholds set from the real score distribution. Evaluation: automatic checks plus a comparison with the rules on labelled pairs. Deployment: it runs in the prototype, a person confirms every suggestion, and every result records which method made it. The loop back matters: the failure we found is fixed in the data, not by changing the model.</aside>
+</section>
+</div>
+<p class="notes"><b>2. crisp</b> We followed the six phases that CRISP-DM and PMI’s CPMAI share. Business understanding: students describe what they want in their own words, and rules can’t read meaning. Data understanding: the shared database has 390 usable student profiles, 178 open internships and 44 skill terms, and we kept the messy parts visible, such as missing dates, skills nobody verified and free-text skills. Data preparation: one text per goal, internship and skill, turned into embeddings. Modelling: we did not train a model; we use the pretrained gte-small sentence model and cosine similarity, with thresholds set from the real score distribution. Evaluation: automatic checks plus a comparison with the rules on labelled pairs. Deployment: it runs in the prototype, a person confirms every suggestion, and every result records which method made it. The loop back matters: the failure we found is fixed in the data, not by changing the model.</p>
+<div class="frame" id="s3"><section id="data" data-transition="fade">
+<div class="head">
+<p class="eyebrow">Sample data and sources</p>
+<h2 class="title">One shared, synthetic database for all seven teams</h2>
+</div>
+<div class="stats">
+<div class="stat"><p class="stat-num">400</p><p class="stat-label">students, with 808 profile versions</p></div>
+<div class="stat"><p class="stat-num">240</p><p class="stat-label">internships from 60 employers; 178 open</p></div>
+<div class="stat"><p class="stat-num">44</p><p class="stat-label">shared skill terms every team uses</p></div>
+<div class="stat"><p class="stat-num">616</p><p class="stat-label">applications with their status history</p></div>
+<div class="stat"><p class="stat-num">8,231</p><p class="stat-label">stored match results, each traceable</p></div>
+</div>
+<div class="row" style="gap:48px">
+<div class="col" style="flex:1">
+<p class="h3-teal">Where it comes from</p>
+<p class="body">The data contract in the group binder (P01 to P07), generated with a fixed seed. Layla Hassan and OP-028 are kept exactly as in the binder, with the eight data problems we test against.</p>
+<p class="body">Every person and company is invented. No real student data.</p>
+</div>
+<div class="col" style="flex:1">
+<p class="h3-teal">Missing or uncertain, on purpose</p>
+<p class="body">Dates left empty show as “cannot confirm”, never “no”. Skills a student lists are “unverified” until training checks them. Drafts newer than the submitted profile are ignored. 37 students wrote 23 skills in their own words.</p>
+</div>
+<div class="col" style="flex:1">
+<p class="h3-teal">Who may change what</p>
+<p class="body">Everyone reads everything. Each team writes only its own tables, with its own key; versions are added, never overwritten; nobody deletes. A sandbox lets teams practise.</p>
+</div>
+</div>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">3</p>
+<aside>Our sample data now lives in one shared Supabase database that all seven teams can use: 400 students with 808 profile versions, 240 internships from 60 employers, 178 of them open, a shared list of 44 skill terms, 616 applications and over 8,000 stored match results. Everything is synthetic and follows the data contract in the binder; Layla and the Emirates aviation job are kept exactly as in the binder, together with the eight data problems we test against. We kept missing and uncertain information on purpose, because real data is messy: empty dates show as “cannot confirm”, skills a student lists are unverified until training checks them, and free-text skills stay unrecognised until a person confirms a mapping. Access is simple: everyone reads, each team writes only its own tables with its own key, versions are only ever added, and nobody can delete. This replaces Sprint 1’s private demo file.</aside>
+</section>
+</div>
+<p class="notes"><b>3. data</b> Our sample data now lives in one shared Supabase database that all seven teams can use: 400 students with 808 profile versions, 240 internships from 60 employers, 178 of them open, a shared list of 44 skill terms, 616 applications and over 8,000 stored match results. Everything is synthetic and follows the data contract in the binder; Layla and the Emirates aviation job are kept exactly as in the binder, together with the eight data problems we test against. We kept missing and uncertain information on purpose, because real data is messy: empty dates show as “cannot confirm”, skills a student lists are unverified until training checks them, and free-text skills stay unrecognised until a person confirms a mapping. Access is simple: everyone reads, each team writes only its own tables with its own key, versions are only ever added, and nobody can delete. This replaces Sprint 1’s private demo file.</p>
+<div class="frame" id="s4"><section id="demo" data-transition="fade">
+<div class="head">
+<p class="eyebrow">Demonstration</p>
+<h2 class="title">Three ranked internships, each with its reasons</h2>
+</div>
+<div class="row" style="gap:40px">
+<div class="col" style="gap:16px">
+<img class="shot" src="../images2/top3-ai.png" alt="Layla’s Top 3 for you, ranked with AI similarity: Airport Operations Analyst Intern, Logistics Operations Analyst Intern and Aviation Data Analyst Intern, each marked Can apply with three plain reasons, including AI similarity 0.8971 and 0.8904" style="width:631px;height:480px">
+<p class="h3">Student: top 3 with reasons</p>
+<p class="body" style="width:631px">Rules decide “Can apply”; the AI only reorders and adds a meaning-based reason with its score.</p>
+</div>
+<div class="col" style="gap:16px">
+<img class="shot" src="../images2/ai-suggestions.png" alt="Coordinator view, AI skill suggestions: agile board hygiene matched to Agile and Scrum practice 0.878 and Jira 0.858 with Confirm and Reject buttons; a live try of customer journey mapping returns Healthcare operations 0.856" style="width:517px;height:480px">
+<p class="h3">Coordinator: AI suggests, a person decides</p>
+<p class="body" style="width:517px">Confirm or Reject sends a note to the profile team; the profile itself never changes here.</p>
+</div>
+<div class="soft-panel" style="flex:1;gap:12px">
+<p class="h3-teal">FAQ chatbot</p>
+<p class="body">Not built by P05: the lab notes let teams working on matching skip it. Which team builds it is for the Scrum of Scrums to confirm.</p>
+<p class="body">The working prototype and the code are linked on the last slide.</p>
+</div>
+</div>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">4</p>
+<aside>Live demo. On My matches, Layla’s top 3 internships, ranked with the AI method. Each comes with plain reasons, and one of them is new in this sprint: “your goals are close in meaning to this job”, with the similarity score. Whether she can apply is still decided only by the rules and shown separately; the AI can reorder within a group, never move a job into “Can apply”. Then the coordinator view: Arjun wrote “agile board hygiene” as a skill. The AI suggests Agile and Jira; the coordinator confirms or rejects, and confirming only sends a note to the profile team. Then I type a new phrase live, “customer journey mapping”, and you can see the AI get it wrong: it says Healthcare operations. That is exactly why a person decides. About the FAQ chatbot: the lab notes say a team working on matching does not have to build it, so P05 did not; the Scrum of Scrums should confirm which team does. If the live demo fails, these screenshots show the same states.</aside>
+</section>
+</div>
+<p class="notes"><b>4. demo</b> Live demo. On My matches, Layla’s top 3 internships, ranked with the AI method. Each comes with plain reasons, and one of them is new in this sprint: “your goals are close in meaning to this job”, with the similarity score. Whether she can apply is still decided only by the rules and shown separately; the AI can reorder within a group, never move a job into “Can apply”. Then the coordinator view: Arjun wrote “agile board hygiene” as a skill. The AI suggests Agile and Jira; the coordinator confirms or rejects, and confirming only sends a note to the profile team. Then I type a new phrase live, “customer journey mapping”, and you can see the AI get it wrong: it says Healthcare operations. That is exactly why a person decides. About the FAQ chatbot: the lab notes say a team working on matching does not have to build it, so P05 did not; the Scrum of Scrums should confirm which team does. If the live demo fails, these screenshots show the same states.</p>
+<div class="frame" id="s5"><section id="tests" data-transition="fade">
+<div class="head">
+<p class="eyebrow">Test results and human safeguards</p>
+<h2 class="title">Checked on live data, compared with the rules</h2>
+</div>
+<div class="row" style="gap:56px">
+<div class="col-lg" style="flex:1">
+<div class="stats" style="grid-template-columns:1fr 1fr 1fr">
+<div class="stat"><p class="stat-num">21/21</p><p class="stat-label">automatic checks pass</p></div>
+<div class="stat"><p class="stat-num">15/15</p><p class="stat-label">live database checks, incl. access rules</p></div>
+<div class="stat"><p class="stat-num">16/16</p><p class="stat-label">examples in the partner guide run</p></div>
+</div>
+<table class="results">
+<tr><th style="width:58%">On 30 labelled student–internship pairs</th><th style="width:21%;text-align:right">Rules</th><th style="width:21%;text-align:right">With AI</th></tr>
+<tr><td>Top suggestion is labelled a good fit</td><td style="text-align:right">33%</td><td style="text-align:right">33%</td></tr>
+<tr><td>Pairs in label order, full ranking</td><td style="text-align:right">71%</td><td style="text-align:right">71%</td></tr>
+<tr><td>Pairs in label order, interest points only</td><td style="text-align:right">89%</td><td style="text-align:right">93%</td></tr>
+<tr><td>Changed who can apply</td><td style="text-align:right">–</td><td style="text-align:right">0 of 30</td></tr>
+</table>
+<p class="note">Tested with Layla, Arjun and Noura: the AI swapped one internship in each top 3 for one closer to their goal. The labels are provisional, written by Team 5 until a coordinator labels pairs; a gap of about 1.5 pairs is too small to call the AI better.</p>
+</div>
+<div class="soft-panel" style="width:600px;gap:20px">
+<div class="col" style="gap:6px">
+<p class="h3-teal">One failure we found</p>
+<p class="body">“customer journey mapping” → Healthcare operations, 0.856. Wrong: it means UX research.</p>
+</div>
+<div class="col" style="gap:6px">
+<p class="h3-teal">Corrective action</p>
+<p class="body">The coordinator rejects it. Next: add “customer journey” to UX research’s synonyms and run the comparison again.</p>
+</div>
+<div class="col" style="gap:6px">
+<p class="h3-teal">Human review steps</p>
+<p class="body">The coordinator confirms every skill suggestion. P01 decides whether a profile changes. P06 verifies skills. The co-op office approves every placement.</p>
+</div>
+</div>
+</div>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">5</p>
+<aside>What we tested. 21 automatic checks pass, including three new ones for the AI: it never changes who can apply, it always says which model produced a score, and its skill suggestions never count as a requirement. 15 checks run against the live database, including the access rules: a team cannot write another team’s tables, versions cannot be overwritten, nobody can delete. Every example in the guide for other teams was run against the live data. We tested three students by hand: in each case the AI swapped one internship in the top 3 for one closer to the student’s goal. On 30 labelled pairs the AI orders interests slightly better, 93 against 89 percent, but that is about one and a half pairs, and the labels were written by us as a stand-in for a coordinator, so we do not claim the AI is better. The failure: “customer journey mapping” was matched to healthcare operations. The correction is a person rejecting it and a synonym fix in the data. People stay in charge at four points: coordinator, P01, P06 and the co-op office.</aside>
+</section>
+</div>
+<p class="notes"><b>5. tests</b> What we tested. 21 automatic checks pass, including three new ones for the AI: it never changes who can apply, it always says which model produced a score, and its skill suggestions never count as a requirement. 15 checks run against the live database, including the access rules: a team cannot write another team’s tables, versions cannot be overwritten, nobody can delete. Every example in the guide for other teams was run against the live data. We tested three students by hand: in each case the AI swapped one internship in the top 3 for one closer to the student’s goal. On 30 labelled pairs the AI orders interests slightly better, 93 against 89 percent, but that is about one and a half pairs, and the labels were written by us as a stand-in for a coordinator, so we do not claim the AI is better. The failure: “customer journey mapping” was matched to healthcare operations. The correction is a person rejecting it and a synonym fix in the data. People stay in charge at four points: coordinator, P01, P06 and the co-op office.</p>
+<div class="frame" id="s6"><section id="next" class="lime" data-transition="fade">
+<div class="col">
+<p class="eyebrow-strong">Scrum of Scrums, backlog and next steps</p>
+<h2 class="title" style="font-size:72px;line-height:1.08;letter-spacing:-1.5px;width:1664px">Shared data for every team; real labels next</h2>
+</div>
+<div class="cols4">
+<div class="col-rule">
+<p class="h3">Scrum of Scrums</p>
+<p class="lime-text">We offer every team the shared database: an ownership map of 24 tables, one key per team and a guide with 16 tested examples. To agree at the next SoS.</p>
+</div>
+<div class="col-rule">
+<p class="h3">Backlog updates</p>
+<p class="lime-text">Added: shared-data integration, AI skill suggestions with a confirm step, coordinator-labelled pairs. Done: the real AI method.</p>
+</div>
+<div class="col-rule">
+<p class="h3">Since Sprint 1</p>
+<p class="lime-text">Sprint 1’s simulated helper and private demo file are gone. The same checks, now 21, still pass on live data.</p>
+</div>
+<div class="col-rule">
+<p class="h3">Sprint 3</p>
+<p class="lime-text">A coordinator labels 20 or more pairs; synonym fix and re-run; joint test with P06 through the database; three classmates try it.</p>
+</div>
+</div>
+<div class="bottom-row">
+<div class="links">
+<p class="link-line"><b>Prototype</b>  thecyper.github.io/bus2010-p05-opportunity-matcher</p>
+<p class="link-line"><b>Code</b>  github.com/TheCYPER/bus2010-p05-opportunity-matcher</p>
+</div>
+<p class="questions">Questions?</p>
+</div>
+<aside>Coordination. The shared database is ready for every team: each team owns its tables, gets its own write key, and has a guide whose examples we ran against the live data. We will propose it at the next Scrum of Scrums; the other teams have not agreed to it yet. Backlog: we added stories for shared-data integration, for AI skill suggestions with a confirmation step, and for coordinator-labelled pairs; the real AI method is done. Continuous improvement since Sprint 1: the simulated helper and our private demo file are gone, and the same checks still pass on live data. Next sprint: a real coordinator labels at least 20 pairs so the comparison means something, we fix the synonyms the failure showed and run it again, we test the skill-gap handoff with P06 through the database, and three classmates who did not build it try the prototype. The prototype and the code are at these two links. Thank you; happy to take questions.</aside>
+</section>
+</div>
+<p class="notes"><b>6. next</b> Coordination. The shared database is ready for every team: each team owns its tables, gets its own write key, and has a guide whose examples we ran against the live data. We will propose it at the next Scrum of Scrums; the other teams have not agreed to it yet. Backlog: we added stories for shared-data integration, for AI skill suggestions with a confirmation step, and for coordinator-labelled pairs; the real AI method is done. Continuous improvement since Sprint 1: the simulated helper and our private demo file are gone, and the same checks still pass on live data. Next sprint: a real coordinator labels at least 20 pairs so the comparison means something, we fix the synonyms the failure showed and run it again, we test the skill-gap handoff with P06 through the database, and three classmates who did not build it try the prototype. The prototype and the code are at these two links. Thank you; happy to take questions.</p>
+</main>
+<script>
+const ICONS = { Check: '<path d="M20 6 9 17l-5-5"/>' };
+customElements.define('x-icon', class extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">' + (ICONS[this.getAttribute('name')] || '') + '</svg>';
+  }
+});
+function fit() {
+  document.querySelectorAll('.frame').forEach(f => {
+    const s = f.querySelector('section'); if (s) s.style.transform = 'scale(' + (f.clientWidth / 1920) + ')';
+  });
+}
+addEventListener('resize', fit); fit();
+</script>
+</body></html>

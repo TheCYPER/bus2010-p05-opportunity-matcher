@@ -1,0 +1,21 @@
+<section id="impediment" data-transition="fade">
+<div class="head">
+<p class="eyebrow">Key impediment from Sprint 2 · Risk and mitigation</p>
+<h2 class="title">P05 could not read other teams’ student data</h2>
+</div>
+<table class="fields">
+<tr><th style="width:20%">Field</th><th style="width:80%">Entry</th></tr>
+<tr><td>ID</td><td>IMP-01</td></tr>
+<tr><td>Description</td><td>Team 1’s app kept its own records: other field names, 14 skill IDs against the shared 44, and OP-026 meant a different job.</td></tr>
+<tr><td>Impact</td><td>No recommendations for students created in another module; P01 and P05 could not start integration tests.</td></tr>
+<tr><td>Detected on</td><td>16 November 2026, at the first cross-team handoff</td></tr>
+<tr><td>Responsible</td><td>P01 and P05 integrators</td></tr>
+<tr><td>Resolution</td><td>The shared database is the data contract: agreed tables with one owner each, a field mapping and a tested guide.</td></tr>
+<tr><td>Escalation</td><td>Scrum of Scrums merge plan: P05 builds the shared read client, 28 November to 4 December.</td></tr>
+<tr><td>Status</td><td>Partly resolved: P01 to P05 through the database works; the shared app still shows its local seed records.</td></tr>
+<tr><td>Resolved on</td><td>23 November 2026 for P01 to P05; the read client for every team follows</td></tr>
+</table>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">7</p>
+<aside>Our key impediment from Sprint 2 is the very example in the template: P05 could not read other teams’ student data. Team 1’s app kept its own records with other field names, a different list of skill IDs, and even the same opportunity ID meaning a different job. So we could not recommend anything for students created in another module, and integration testing with P01 could not start. We found it at the first handoff on 16 November. The resolution was to make the shared database the data contract: agreed tables, one owner per table, a written mapping and a guide whose examples are tested. It is partly resolved: P01 to P05 through the database works since 23 November, and the Scrum of Scrums merge plan gives us the next step, a shared read client that every team’s pages can use, by early December.</aside>
+</section>

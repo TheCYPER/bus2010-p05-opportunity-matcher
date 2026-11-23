@@ -1,0 +1,63 @@
+/* Team 5 · P05 Sprint 3 review. The professor's Sprint 3 template structure, in the look of our
+   Sprint 1 and 2 decks and the prototype: paper #F5F7EE, ink #213502, teal #1F4F59, lime #DCD964,
+   green #4E7808, cyan #54C0CC. Type scale: 112 / 64 / 44 / 32 / 24.
+   Faces: Bricolage Grotesque (headings), Figtree (text). */
+
+section { background: #F5F7EE; color: #213502; font-family: 'Figtree', Arial, sans-serif; font-size: 24px; padding: 128px 128px 160px; display: flex; flex-direction: column; gap: 40px; }
+section.lead { padding: 128px; justify-content: space-between; gap: 28px; }
+section.lime { background: #DCD964; }
+
+.head { display: flex; flex-direction: column; gap: 12px; }
+.eyebrow { font-size: 24px; font-weight: 600; color: #1F4F59; }
+.title { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-size: 64px; font-weight: 700; line-height: 1.1; letter-spacing: -1px; color: #213502; }
+.display { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-size: 112px; font-weight: 700; line-height: 1; letter-spacing: -3px; color: #213502; }
+.subtitle { font-size: 44px; line-height: 1.25; color: #4A5A3A; }
+.h3 { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.2; color: #213502; }
+.h3-teal { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.2; color: #1F4F59; }
+.text { font-size: 28px; line-height: 1.4; color: #4A5A3A; }
+.body { font-size: 24px; line-height: 1.4; color: #4A5A3A; }
+.strong { font-size: 24px; line-height: 1.4; font-weight: 700; color: #213502; }
+.note { font-size: 24px; line-height: 1.4; color: #5E6A52; }
+.foot { position: absolute; left: 128px; bottom: 64px; width: 1200px; font-size: 24px; color: #5E6A52; }
+.pno { position: absolute; right: 128px; bottom: 64px; width: 200px; font-size: 24px; color: #5E6A52; text-align: right; }
+
+.col { display: flex; flex-direction: column; gap: 12px; }
+.col-lg { display: flex; flex-direction: column; gap: 28px; }
+.row { display: flex; flex-direction: row; gap: 40px; align-items: flex-start; }
+
+/* teal panel (cover) */
+.teal-panel { position: absolute; left: 1152px; top: 128px; width: 640px; height: 824px; box-sizing: border-box; background: #1F4F59; border-radius: 40px; padding: 48px; display: flex; flex-direction: column; justify-content: center; gap: 32px; }
+.panel-title { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-size: 44px; font-weight: 700; color: #F1F5E6; line-height: 1.1; }
+.panel-item { display: flex; flex-direction: row; gap: 20px; align-items: flex-start; }
+.panel-num { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-size: 44px; font-weight: 700; line-height: 1; color: #DCD964; width: 40px; flex: none; }
+.panel-text { font-size: 28px; line-height: 1.35; color: #E3ECE6; }
+
+/* cards */
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+.card { background: #FCFDF8; border: 2px solid #DFE5D3; border-radius: 28px; padding: 28px 32px; display: flex; flex-direction: column; gap: 8px; }
+.card-tag { font-size: 24px; font-weight: 700; color: #1F4F59; }
+.card-tbd { background: #F6F0C2; border: 2px solid #E6DB8C; border-radius: 28px; padding: 28px 32px; display: flex; flex-direction: column; gap: 8px; }
+
+/* user stories */
+.story-col { flex: 1; display: flex; flex-direction: column; gap: 14px; border-top: 3px solid #1F4F59; padding-top: 20px; }
+.story-id { font-size: 24px; font-weight: 700; color: #1F4F59; }
+.story-text { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.25; color: #213502; }
+.label { font-size: 24px; font-weight: 700; color: #4E7808; }
+
+.soft-panel { background: #E8EDDD; border-radius: 28px; padding: 32px 40px; display: flex; flex-direction: column; gap: 12px; }
+.shot { background: #FCFDF8; border: 2px solid #DFE5D3; border-radius: 28px; object-fit: contain; }
+.link-line { font-size: 26px; line-height: 1.35; color: #213502; }
+
+/* before / after */
+.ba { display: flex; flex-direction: row; gap: 40px; }
+.ba-col { display: flex; flex-direction: column; gap: 14px; }
+.pill-gray { font-size: 24px; font-weight: 700; color: #4A5A3A; background: #E7EBDF; border-radius: 999px; padding: 6px 20px; }
+.pill-lime { font-size: 24px; font-weight: 700; color: #213502; background: #DCD964; border-radius: 999px; padding: 6px 20px; }
+.pill-row { display: flex; flex-direction: row; gap: 16px; align-items: center; }
+
+/* impediment table */
+.fields { font-size: 24px; color: #213502; width: 100%; }
+
+/* retro */
+.retro-col { flex: 1; display: flex; flex-direction: column; gap: 18px; }
+.retro-item { display: flex; flex-direction: column; gap: 4px; border-top: 2px solid #DFE5D3; padding-top: 16px; }
