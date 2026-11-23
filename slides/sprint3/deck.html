@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team 5 · P05 Sprint 3 Review</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500..700&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="project/deck.css">
+<style>
+body{margin:0;background:#2E3328;font-family:Figtree,Arial,sans-serif}
+.deck{display:flex;flex-direction:column;align-items:center;gap:20px;padding:32px 16px}
+.frame{width:min(100%,1280px);aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.frame>section{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;box-sizing:border-box;overflow:hidden}
+.frame section *{margin:0}
+.frame section aside{display:none}
+.frame section img{display:block}
+.frame section table{border-collapse:separate;border-spacing:0;border-top:2px solid #C5CEB5}
+.frame section th,.frame section td{padding:.35em .6em;text-align:left;border-bottom:2px solid #DFE5D3}
+.frame section th{font-weight:700}
+x-icon{display:inline-block} x-icon svg{width:100%;height:100%;display:block}
+.notes{width:min(100%,1280px);margin:0 0 28px;color:#D9DFCD;font-size:14px;line-height:1.55}
+.notes b{color:#DCD964;margin-right:6px}
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  body{background:#fff} .deck{padding:0;gap:0} .notes{display:none}
+  .frame{width:1920px;height:1080px;aspect-ratio:auto;border-radius:0;box-shadow:none;break-after:page}
+  .frame>section{transform:none!important}
+}
+</style></head><body>
+<main class="deck">
+<div class="frame" id="s1"><section id="cover" class="lead" data-transition="fade">
+<div class="col" style="width:960px">
+<p class="eyebrow">BUS2010 co-op platform, Sprint 3 review · Team 5, project P05 · 24 November 2026</p>
+</div>
+<div class="col" style="width:960px;gap:20px">
+<h1 class="display">Coop Internship Project</h1>
+<p class="subtitle">P05 Opportunity Matcher: one shared database, one look, AI for every team’s students.</p>
+</div>
+<p class="note" style="width:960px">Alghala Almansoori, Maha Abdulla, Che Liu, Leonard Jiang Mingming, Yonghan Yang</p>
+<div class="teal-panel">
+<p class="panel-title">This sprint</p>
+<div class="panel-item"><p class="panel-num">1</p><p class="panel-text">Team 1 writes students into the shared database, and P05 ranks them.</p></div>
+<div class="panel-item"><p class="panel-num">2</p><p class="panel-text">A student added by any team gets live AI scores, not a fallback.</p></div>
+<div class="panel-item"><p class="panel-num">3</p><p class="panel-text">The shared IPP app gets one look, as the professor asked.</p></div>
+</div>
+<aside>We are Team 5, project P05, AI-assisted matching. Sprint 3 was about integration: making our part work with everyone else’s. Three things happened. Another team, Team 1, now writes students into the shared database we host, and our matching ranks them without any manual step. A student added by any team gets real AI scores straight away, computed live by the model. And we answered the professor’s request to make the app look unified, with a pull request that gives the whole shared app one look.</aside>
+</section>
+</div>
+<p class="notes"><b>1. cover</b> We are Team 5, project P05, AI-assisted matching. Sprint 3 was about integration: making our part work with everyone else’s. Three things happened. Another team, Team 1, now writes students into the shared database we host, and our matching ranks them without any manual step. A student added by any team gets real AI scores straight away, computed live by the model. And we answered the professor’s request to make the app look unified, with a pull request that gives the whole shared app one look.</p>
+<div class="frame" id="s2"><section id="tools" data-transition="fade">
+<div class="head">
+<p class="eyebrow">Technology stack</p>
+<h2 class="title">Tools used by our team</h2>
+</div>
+<div class="grid3">
+<div class="card">
+<p class="h3">Supabase</p>
+<p class="body">The shared database for all seven teams: one key per team, read views, a table of AI embeddings, and a small cloud function for live AI scores.</p>
+</div>
+<div class="card">
+<p class="h3">gte-small model</p>
+<p class="body">A pretrained sentence-embedding model, not trained by us. It compares the meaning of a student’s goal with each internship.</p>
+</div>
+<div class="card">
+<p class="h3">GitHub</p>
+<p class="body">Our code and live prototype (GitHub Pages), plus pull requests to the class’s shared IPP app.</p>
+</div>
+<div class="card">
+<p class="h3">Shared IPP app</p>
+<p class="body">The common app every team merges into: TanStack Start, React, Tailwind. We restyled it and added P05 to its navigation.</p>
+</div>
+<div class="card">
+<p class="h3">Claude Code</p>
+<p class="body">Building and checking the database, the prototype, the guide for other teams and these slides.</p>
+</div>
+<div class="card-tbd">
+<p class="h3">Team coordination</p>
+<p class="body">[Team chat and task board: the team to confirm before presenting]</p>
+</div>
+</div>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">2</p>
+<aside>Our stack this sprint. Supabase hosts the shared database for all seven teams, with one write key per team, read views, the stored AI embeddings and a small cloud function that computes AI scores live. The AI itself is gte-small, a pretrained sentence-embedding model; we did not train anything. GitHub holds our code and the live prototype, and we used it to send pull requests to the class’s shared app, which is built with TanStack Start and React. Claude Code helped us build and test all of it. [Say which chat and task board the team used.]</aside>
+</section>
+</div>
+<p class="notes"><b>2. tools</b> Our stack this sprint. Supabase hosts the shared database for all seven teams, with one write key per team, read views, the stored AI embeddings and a small cloud function that computes AI scores live. The AI itself is gte-small, a pretrained sentence-embedding model; we did not train anything. GitHub holds our code and the live prototype, and we used it to send pull requests to the class’s shared app, which is built with TanStack Start and React. Claude Code helped us build and test all of it. [Say which chat and task board the team used.]</p>
+<div class="frame" id="s3"><section id="stories" data-transition="fade">
+<div class="head">
+<p class="eyebrow">Key user stories completed in Sprint 3</p>
+<h2 class="title">Three stories, each checked on live data</h2>
+</div>
+<div class="row" style="gap:40px">
+<div class="story-col">
+<p class="story-id">US 1 · Partner team</p>
+<p class="story-text">We read and write one shared database with our own key</p>
+<p class="body">so that all seven modules use the same records.</p>
+<p class="label">Done when</p>
+<p class="body">Each table has one owner, writes need that team’s key, and versions are only added.</p>
+<p class="label">Evidence</p>
+<p class="body">Team 1 wrote Mira Haddad (COOP-P001): 3 profile versions, 9 skills. 16 of 16 live checks pass.</p>
+</div>
+<div class="story-col">
+<p class="story-id">US 2 · Student added by another team</p>
+<p class="story-text">I get AI-ranked internships with reasons straight away</p>
+<p class="body">so that P05 works on everyone’s data, not only ours.</p>
+<p class="label">Done when</p>
+<p class="body">Both methods rank her, the AI uses the real model, and who can apply never changes.</p>
+<p class="label">Evidence</p>
+<p class="body">Mira: 16 internships she can apply to, 29 with one thing to do. Her goal is scored live against 351 job versions.</p>
+</div>
+<div class="story-col">
+<p class="story-id">US 3 · Anyone using the app</p>
+<p class="story-text">I see one consistent app across every team’s pages</p>
+<p class="body">so that the platform feels like one product.</p>
+<p class="label">Done when</p>
+<p class="body">One palette, type and set of status colours on every page, no module rewritten, 73 tests pass.</p>
+<p class="label">Evidence</p>
+<p class="body">Pull requests #2 (one look) and #3 (P05 in the navigation) to the shared app.</p>
+</div>
+</div>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">3</p>
+<aside>Three user stories, each with its acceptance criteria and evidence we checked on live data. First, for partner teams: one shared database where each team writes its own tables with its own key. Team 1 already did: they created a student, Mira Haddad, with three profile versions and nine skills. Second, for a student created by another team: she gets AI-ranked internships with reasons straight away. Mira can apply to 16 internships now and 29 more need one thing from her; because her goal was new, the model scored it live against every internship. Third, for anyone using the app: one consistent look across every team’s pages, which is in our pull request to the shared app.</aside>
+</section>
+</div>
+<p class="notes"><b>3. stories</b> Three user stories, each with its acceptance criteria and evidence we checked on live data. First, for partner teams: one shared database where each team writes its own tables with its own key. Team 1 already did: they created a student, Mira Haddad, with three profile versions and nine skills. Second, for a student created by another team: she gets AI-ranked internships with reasons straight away. Mira can apply to 16 internships now and 29 more need one thing from her; because her goal was new, the model scored it live against every internship. Third, for anyone using the app: one consistent look across every team’s pages, which is in our pull request to the shared app.</p>
+<div class="frame" id="s4"><section id="demo" data-transition="fade">
+<div class="head">
+<p class="eyebrow">Project demo</p>
+<h2 class="title">Team 1 created Mira. P05 ranks her live.</h2>
+</div>
+<div class="row" style="gap:56px">
+<img class="shot" src="../images3/mira-top3.png" alt="Mira’s Top 3 in the P05 prototype, ranked with AI similarity: Logistics Operations Analyst Intern, Airport BI Developer Intern with AI similarity 0.8865, and Banking Data Analyst Intern, each marked Can apply with plain reasons" style="width:716px;height:525px">
+<div class="col-lg" style="flex:1">
+<div class="col" style="gap:8px">
+<p class="h3-teal">Live links</p>
+<p class="link-line"><b>Prototype</b> thecyper.github.io/bus2010-p05-opportunity-matcher</p>
+<p class="link-line"><b>Shared app</b> pull request #2, ipp-coop-2026/ipp-coop</p>
+</div>
+<div class="col" style="gap:8px">
+<p class="h3-teal">Key journeys</p>
+<ol class="body" style="padding-left:1.2em">
+<li>Mira, created by Team 1, ranked by P05 with live AI scores</li>
+<li>Layla’s unverified Jira sent to skills training, then refreshed</li>
+<li>The coordinator confirms or rejects an AI skill suggestion</li>
+</ol>
+</div>
+<div class="soft-panel" style="gap:8px">
+<p class="strong">How the MVP solves the problem</p>
+<p class="body">Every student sees which internships fit now, why, and the one thing to do for the rest. A person still approves every placement.</p>
+</div>
+</div>
+</div>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">4</p>
+<aside>Live demo. I search for Mira Haddad, a student that Team 1 created in the shared database. With the AI method on, P05 shows her top 3. The second one, Airport BI Developer, is there because her goal is close in meaning to the job: similarity 0.89, computed live because her text is new. Then the familiar journey with Layla: her Jira is unverified, she sends it to skills training, the review comes back, and her matches refresh with the old result kept. Last, the coordinator view, where a person confirms or rejects what the AI suggests. The problem we solve: every student sees what fits now, why, and the one thing to do for the rest, while a person still approves every placement. If the live demo fails, this screenshot shows the same state.</aside>
+</section>
+</div>
+<p class="notes"><b>4. demo</b> Live demo. I search for Mira Haddad, a student that Team 1 created in the shared database. With the AI method on, P05 shows her top 3. The second one, Airport BI Developer, is there because her goal is close in meaning to the job: similarity 0.89, computed live because her text is new. Then the familiar journey with Layla: her Jira is unverified, she sends it to skills training, the review comes back, and her matches refresh with the old result kept. Last, the coordinator view, where a person confirms or rejects what the AI suggests. The problem we solve: every student sees what fits now, why, and the one thing to do for the rest, while a person still approves every placement. If the live demo fails, this screenshot shows the same state.</p>
+<div class="frame" id="s5"><section id="unified" data-transition="fade">
+<div class="head">
+<p class="eyebrow">Showcase your MVP component · Professor’s request: “Please make your app look unified”</p>
+<h2 class="title">One look for the shared IPP app</h2>
+</div>
+<div class="ba">
+<div class="ba-col">
+<div class="pill-row"><p class="pill-gray">Before</p><p class="note">Student page as the shared app looked on 23 November</p></div>
+<img class="shot" src="../images3/before-student.jpg" alt="Shared IPP app before: generic green banner, white sidebar, system font, student page with two opportunity cards" style="width:700px;height:438px">
+</div>
+<div class="ba-col">
+<div class="pill-row"><p class="pill-lime">After</p><p class="note">The same page with pull request #2</p></div>
+<img class="shot" src="../images3/student.jpg" alt="Shared IPP app after: paper background, teal banner, lime brand mark and active role, Bricolage headings, flat cards" style="width:700px;height:438px">
+</div>
+</div>
+<p class="body">Changed through the shared design tokens: every team’s page updates at once, no module is rewritten, and all 73 tests pass.</p>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">5</p>
+<aside>The professor asked every team to make the app look unified. The class has one shared app that started from Team 1’s project, and it still had the generic look the tool generated. We gave the whole app one look through its shared design tokens: the same paper background, teal and lime as our prototype, our two typefaces, flat surfaces and a small set of status colours that always come with a word. Because it is done through tokens, every team’s page changes at once and no one’s module has to be rewritten; the app’s 73 tests still pass. It is pull request number 2 on the shared repository, and number 3 adds our module to its navigation.</aside>
+</section>
+</div>
+<p class="notes"><b>5. unified</b> The professor asked every team to make the app look unified. The class has one shared app that started from Team 1’s project, and it still had the generic look the tool generated. We gave the whole app one look through its shared design tokens: the same paper background, teal and lime as our prototype, our two typefaces, flat surfaces and a small set of status colours that always come with a word. Because it is done through tokens, every team’s page changes at once and no one’s module has to be rewritten; the app’s 73 tests still pass. It is pull request number 2 on the shared repository, and number 3 adds our module to its navigation.</p>
+<div class="frame" id="s6"><section id="retro" data-transition="fade">
+<div class="head">
+<p class="eyebrow">Retrospective: SoS liaison and team</p>
+<h2 class="title">What cross-team work taught us</h2>
+</div>
+<div class="row" style="gap:64px">
+<div class="retro-col">
+<p class="h3-teal">Cross-team communication</p>
+<div class="retro-item"><p class="strong">What helped</p><p class="body">A guide whose examples we had run on the live data, and a sandbox to practise in. Team 1 wrote its first records on the day the guide was shared.</p></div>
+<div class="retro-item"><p class="strong">What hurt</p><p class="body">Decisions were spread across chat, the guide and a new repository. We learned about the common repository only when it appeared on 23 November.</p></div>
+<div class="retro-item"><p class="strong">What we change</p><p class="body">Join the merge plan with named integrators, log every schema change as a migration and a decision, and give each open question one owner and a date.</p></div>
+</div>
+<div class="retro-col">
+<p class="h3-teal">Team learning</p>
+<div class="retro-item"><p class="strong">A data contract beats a polished screen</p><p class="body">The hardest Sprint 2 problem was field names, not the algorithm.</p></div>
+<div class="retro-item"><p class="strong">Test the claims, not only the code</p><p class="body">Running every example in our guide caught a broken one before other teams copied it.</p></div>
+<div class="retro-item"><p class="strong">Keep AI bounded and labelled</p><p class="body">New text used to fall back silently to word matching; now it gets a real score, and a fallback says “simulated”.</p></div>
+</div>
+</div>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">6</p>
+<aside>Retrospective. Across teams, what helped was a guide with examples we had actually run, and a sandbox where other teams can practise; Team 1 wrote its first records the same day the guide was shared. What hurt was that decisions lived in too many places, chat, the guide and a new repository, and we only learned about the common repository when it appeared. For the final sprint we will join the merge plan with named integrators, log every schema change as a migration and a decision, and give each open question an owner and a date. As a team, we learned that a data contract matters more than a polished screen, that testing our own claims catches mistakes before others copy them, and that AI should stay bounded and clearly labelled.</aside>
+</section>
+</div>
+<p class="notes"><b>6. retro</b> Retrospective. Across teams, what helped was a guide with examples we had actually run, and a sandbox where other teams can practise; Team 1 wrote its first records the same day the guide was shared. What hurt was that decisions lived in too many places, chat, the guide and a new repository, and we only learned about the common repository when it appeared. For the final sprint we will join the merge plan with named integrators, log every schema change as a migration and a decision, and give each open question an owner and a date. As a team, we learned that a data contract matters more than a polished screen, that testing our own claims catches mistakes before others copy them, and that AI should stay bounded and clearly labelled.</p>
+<div class="frame" id="s7"><section id="impediment" data-transition="fade">
+<div class="head">
+<p class="eyebrow">Key impediment from Sprint 2 · Risk and mitigation</p>
+<h2 class="title">P05 could not read other teams’ student data</h2>
+</div>
+<table class="fields">
+<tr><th style="width:20%">Field</th><th style="width:80%">Entry</th></tr>
+<tr><td>ID</td><td>IMP-01</td></tr>
+<tr><td>Description</td><td>Team 1’s app kept its own records: other field names, 14 skill IDs against the shared 44, and OP-026 meant a different job.</td></tr>
+<tr><td>Impact</td><td>No recommendations for students created in another module; P01 and P05 could not start integration tests.</td></tr>
+<tr><td>Detected on</td><td>16 November 2026, at the first cross-team handoff</td></tr>
+<tr><td>Responsible</td><td>P01 and P05 integrators</td></tr>
+<tr><td>Resolution</td><td>The shared database is the data contract: agreed tables with one owner each, a field mapping and a tested guide.</td></tr>
+<tr><td>Escalation</td><td>Scrum of Scrums merge plan: P05 builds the shared read client, 28 November to 4 December.</td></tr>
+<tr><td>Status</td><td>Partly resolved: P01 to P05 through the database works; the shared app still shows its local seed records.</td></tr>
+<tr><td>Resolved on</td><td>23 November 2026 for P01 to P05; the read client for every team follows</td></tr>
+</table>
+<p class="foot">Team 5, P05 Opportunity Matcher</p>
+<p class="pno">7</p>
+<aside>Our key impediment from Sprint 2 is the very example in the template: P05 could not read other teams’ student data. Team 1’s app kept its own records with other field names, a different list of skill IDs, and even the same opportunity ID meaning a different job. So we could not recommend anything for students created in another module, and integration testing with P01 could not start. We found it at the first handoff on 16 November. The resolution was to make the shared database the data contract: agreed tables, one owner per table, a written mapping and a guide whose examples are tested. It is partly resolved: P01 to P05 through the database works since 23 November, and the Scrum of Scrums merge plan gives us the next step, a shared read client that every team’s pages can use, by early December.</aside>
+</section>
+</div>
+<p class="notes"><b>7. impediment</b> Our key impediment from Sprint 2 is the very example in the template: P05 could not read other teams’ student data. Team 1’s app kept its own records with other field names, a different list of skill IDs, and even the same opportunity ID meaning a different job. So we could not recommend anything for students created in another module, and integration testing with P01 could not start. We found it at the first handoff on 16 November. The resolution was to make the shared database the data contract: agreed tables, one owner per table, a written mapping and a guide whose examples are tested. It is partly resolved: P01 to P05 through the database works since 23 November, and the Scrum of Scrums merge plan gives us the next step, a shared read client that every team’s pages can use, by early December.</p>
+</main>
+<script>
+const ICONS = { Check: '<path d="M20 6 9 17l-5-5"/>' };
+customElements.define('x-icon', class extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">' + (ICONS[this.getAttribute('name')] || '') + '</svg>';
+  }
+});
+function fit() {
+  document.querySelectorAll('.frame').forEach(f => {
+    const s = f.querySelector('section'); if (s) s.style.transform = 'scale(' + (f.clientWidth / 1920) + ')';
+  });
+}
+addEventListener('resize', fit); fit();
+</script>
+</body></html>

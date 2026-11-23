@@ -1,0 +1,20 @@
+{
+  "v": 5,
+  "createdOnFiles": { "v": 1, "at": "2026-11-23T16:10:00Z" },
+  "lists": "css",
+  "format": { "v": 1, "shared": ["project/deck.css"] },
+  "title": "Team 5 · P05 Sprint 3 Review",
+  "cover": "cover",
+  "order": ["cover", "tools", "stories", "demo", "unified", "retro", "impediment"],
+  "sections": {
+    "s1": { "description": "Who we are, what Sprint 3 delivered and the tools we used.", "start": "cover" },
+    "s2": { "description": "The three user stories completed in Sprint 3 and the live demo.", "start": "stories" },
+    "s3": { "description": "The professor’s request: one unified look for the shared app.", "start": "unified" },
+    "s4": { "description": "Retrospective and the key impediment carried over from Sprint 2.", "start": "retro" }
+  },
+  "faces": {
+    "bricolage-grotesque": { "family": "Bricolage Grotesque", "href": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500..700&display=swap" },
+    "figtree": { "family": "Figtree", "href": "https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" }
+  },
+  "designSystems": []
+}
