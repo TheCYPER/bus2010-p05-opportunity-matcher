@@ -160,7 +160,26 @@
     }), cfg.timeoutMs || 8000).then(function (res) {
       if (res && res.goal_embedded) data.ai.goals[key] = res.goal;
       Object.keys((res && res.phrases) || {}).forEach(function (p) { data.ai.phrases[p] = res.phrases[p]; });
-      return !!(res && res.goal_embedded);
+      // Sprint 3: text written after the seed (for example by another team) has no stored
+      // embedding yet. Ask the live model for it instead of falling back to word overlap.
+      var live = [];
+      if (!(res && res.goal_embedded) && profile.goals) live.push(liveGoal(cfg, profile.goals).then(function (g) { data.ai.goals[key] = g; }));
+      phrases.filter(function (p) { return !data.ai.phrases[p]; }).slice(0, 3).forEach(function (p) {
+        live.push(suggest(p, over).then(function (r) {
+          data.ai.phrases[p] = (r.suggestions || []).map(function (s) { return { skill_id: s.skill_id, score: s.similarity }; });
+        }));
+      });
+      return Promise.all(live.map(function (pr) { return pr.catch(function () { return null; }); }))
+        .then(function () { return !!data.ai.goals[key]; });
+    });
+  }
+
+  function liveGoal(cfg, goal) {
+    return withTimeout(request(cfg, '/functions/v1/' + (cfg.aiFunction || 'ai-suggest'), {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ goal: String(goal).slice(0, 600) })
+    }), 25000).then(function (r) {
+      if (!r || !r.goal) throw new Error('No similarity returned');
+      return r.goal;
     });
   }
 

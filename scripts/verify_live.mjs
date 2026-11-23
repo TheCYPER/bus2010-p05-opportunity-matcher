@@ -82,6 +82,11 @@ r = await post('skill_gap_events?gap_id=eq.GAP-0001', { student_id: 'COOP-B008' 
 check(r.status >= 400 && /may only change status/.test(r.text), 'P06 can change a gap\'s status but nothing else', `HTTP ${r.status}`);
 const fn = await fetch(`${env.SUPABASE_URL}/functions/v1/ai-suggest`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{"phrase":"sql"}' });
 check(fn.status === 401, 'ai-suggest refuses calls without the apikey header', `HTTP ${fn.status}`);
+const novel = { student_id: 'COOP-X999', goals: `Probe goal written after the seed: plan solar farm maintenance with sensor data (${Date.now()})`, unmapped_skills: [] };
+const probeData = { ai: { goals: {}, phrases: {} } };
+const gotLive = await S.loadAi(probeData, novel, cfg).catch(() => false);
+const liveScores = Object.keys(probeData.ai.goals[E.textKey(novel.goals)] || {}).length;
+check(gotLive && liveScores > 300, 'A goal with no stored embedding gets live AI scores from the Edge Function', `${liveScores} job versions scored`);
 const who = await S.whoami(keys.P05, cfg);
 check(who === 'P05', 'whoami() recognises the P05 key', String(who));
 const label = { student_id: 'COOP-B006', opportunity_id: 'OP-030', label: 'not_fit', labelled_by: 'verify_live.mjs probe', note: 'Written by the access check; safe to ignore' };
